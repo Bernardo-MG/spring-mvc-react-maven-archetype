@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+
+   <prerequisites>
+      <maven>${maven.version}</maven>
+   </prerequisites>
+
+   <!-- ********************************************** -->
+   <!-- ***************** PARENT POM ***************** -->
+   <!-- ********************************************** -->
+
+   <parent>
+      <groupId>com.bernardomg.maven</groupId>
+      <artifactId>archetype-pom</artifactId>
+      <version>1.1.2</version>
+   </parent>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROJECT INFO **************** -->
+   <!-- ********************************************** -->
+
+   <groupId>com.bernardomg.maven.archetypes</groupId>
+   <artifactId>spring-mvc-react-archetype</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+   <packaging>maven-archetype</packaging>
+
+   <name>Spring MVC with React Maven Archetype</name>
+   <description>A Maven Archetype for projects using Spring MVC, and React + Redux.</description>
+   <url>https://www.github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype</url>
+   <inceptionYear>2015</inceptionYear>
+
+   <licenses>
+      <license>
+         <name>MIT License</name>
+         <url>http://www.opensource.org/licenses/mit-license.php</url>
+         <distribution>repo</distribution>
+      </license>
+   </licenses>
+
+   <!-- ********************************************** -->
+   <!-- ************ RESOURCES AND SERVICES ********** -->
+   <!-- ********************************************** -->
+
+   <scm>
+      <connection>scm:git:https://github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype.git</connection>
+      <developerConnection>scm:git:https://github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype.git</developerConnection>
+      <tag>head</tag>
+      <url>https://github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype</url>
+   </scm>
+
+   <issueManagement>
+      <system>GitHub</system>
+      <url>https://github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype/issues</url>
+   </issueManagement>
+
+   <ciManagement>
+      <system>Travis CI</system>
+      <url>https://travis-ci.org/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype</url>
+      <notifiers />
+   </ciManagement>
+
+   <distributionManagement>
+      <repository>
+         <uniqueVersion>false</uniqueVersion>
+         <id>releases</id>
+         <name>Releases Repository</name>
+         <url>https://api.bintray.com/maven/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype</url>
+      </repository>
+      <snapshotRepository>
+         <uniqueVersion>false</uniqueVersion>
+         <id>snapshots</id>
+         <name>Snapshots Repository</name>
+         <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      </snapshotRepository>
+   </distributionManagement>
+
+   <!-- ********************************************** -->
+   <!-- ****************** PROFILES ****************** -->
+   <!-- ********************************************** -->
+
+   <profiles>
+      <profile>
+         <!-- Release deployment profile -->
+         <!-- Sets the site repository to point to the releases repo -->
+         <id>deployment-release</id>
+         <activation>
+            <!-- Active by default so the repository appears in the reports -->
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <distributionManagement>
+            <site>
+               <id>site</id>
+               <name>Project Documentation Site</name>
+               <!-- The URL should be set externally -->
+               <url>${site.release.url}</url>
+            </site>
+         </distributionManagement>
+      </profile>
+      <profile>
+         <!-- Development deployment profile -->
+         <!-- Sets the site repository to point to the development repo -->
+         <id>deployment-development</id>
+         <distributionManagement>
+            <site>
+               <id>site-development</id>
+               <name>Project Development Documentation Site</name>
+               <!-- The URL should be set externally -->
+               <url>${site.develop.url}</url>
+            </site>
+         </distributionManagement>
+      </profile>
+      <profile>
+         <!-- Deployment profile -->
+         <!-- Sets ups the environment for deployment -->
+         <id>deployment</id>
+         <properties>
+            <!-- Tests are skipped -->
+            <maven.test.skip>true</maven.test.skip>
+         </properties>
+      </profile>
+   </profiles>
+
+   <!-- ********************************************** -->
+   <!-- *********** ORGANIZATION AND MEMBERS ********* -->
+   <!-- ********************************************** -->
+
+   <organization>
+      <name>Bernardo Martínez Garrido</name>
+      <url>https://github.com/Bernardo-MG</url>
+   </organization>
+
+   <developers>
+      <developer>
+         <id>bmg</id>
+         <name>Bernardo Martínez Garrido</name>
+         <email>programming@bernardomg.com</email>
+         <url>https://github.com/Bernardo-MG</url>
+         <organization>Bernardo Martínez Garrido</organization>
+         <organizationUrl>https://github.com/Bernardo-MG</organizationUrl>
+         <roles>
+            <role>Developer</role>
+         </roles>
+         <timezone>+1</timezone>
+         <properties />
+      </developer>
+   </developers>
+
+   <!-- ********************************************** -->
+   <!-- **************** PROPERTIES ****************** -->
+   <!-- ********************************************** -->
+
+   <properties>
+      <!-- ============================================== -->
+      <!-- ================ JAVA VERSION ================ -->
+      <!-- ============================================== -->
+      <java.version>1.8</java.version>
+      <!-- ============================================== -->
+      <!-- =============== MANIFEST DATA ================ -->
+      <!-- ============================================== -->
+      <manifest.name>com/bernardomg/archetype/library</manifest.name>
+      <!-- ============================================== -->
+      <!-- ============== PLUGINS VERSIONS ============== -->
+      <!-- ============================================== -->
+      <plugin.jshint.version>1.6.0</plugin.jshint.version>
+      <!-- ============================================== -->
+      <!-- =========== PLUGINS CONFIGURATION ============ -->
+      <!-- ============================================== -->
+      <!-- Archetype test settings -->
+      <archetype.test.settingsFile>${project.build.testResources[0].directory}/settings.xml</archetype.test.settingsFile>
+      <!-- ============================================== -->
+      <!-- ================= MAVEN SITE ================= -->
+      <!-- ============================================== -->
+      <site.skin.version>1.3.2</site.skin.version>
+      <repoDownloadURL>https://dl.bintray.com/bernardo-mg/maven/</repoDownloadURL>
+      <bintrayURL>https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view</bintrayURL>
+      <mavenURL>http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype</mavenURL>
+   </properties>
+
+   <!-- ********************************************** -->
+   <!-- ******************* BUILD ******************** -->
+   <!-- ********************************************** -->
+
+   <build>
+      <defaultGoal>clean package install</defaultGoal>
+      <pluginManagement>
+         <plugins>
+            <!-- Plugin versions and configurations are enforced here. -->
+            <plugin>
+               <!-- JSHint -->
+               <!-- Validates JS -->
+               <groupId>com.cj.jshintmojo</groupId>
+               <artifactId>jshint-maven-plugin</artifactId>
+               <version>${plugin.jshint.version}</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+      <plugins>
+         <plugin>
+            <!-- JSHint -->
+            <groupId>com.cj.jshintmojo</groupId>
+            <artifactId>jshint-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>jshint</id>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>lint</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <options>maxdepth:3,latedef,nonew,jquery</options>
+               <directories>
+                  <directory>src/main/resources/archetype-resources/src/main/webapp/resources/js</directory>
+               </directories>
+               <reporter>checkstyle</reporter>
+               <reportFile>target/jshint.xml</reportFile>
+               <failOnError>true</failOnError>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Site -->
+            <!-- Generates the Maven Site -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <dependencies>
+               <dependency>
+                  <!-- Docs Maven Skin -->
+                  <groupId>com.bernardomg.maven.skins</groupId>
+                  <artifactId>docs-maven-skin</artifactId>
+                  <version>${site.skin.version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta charset="UTF-8" />
+
+   <title>@project.name@</title>
+
+   <!-- Metadata -->
+   <meta name="description" content="@project.description@" />
+   <meta name="keywords" content="@view.keywords@">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <meta name="mobile-web-app-capable" content="yes">
+
+   <!-- Facebook OpenGraph -->
+   <meta property="og:type" content="website"/>
+   <meta property="og:url" content="@site.url@"/>
+   <meta property="og:title" content="@project.name@"/>
+   <meta property="og:description" content="@project.description@"/>
+
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary"/>
+   <meta name="twitter:creator" content="@social.twitter@"/>
+   <meta name="twitter:title" content="@project.name@"/>
+   <meta name="twitter:description" content="@project.description@"/>
+
+   <!-- CSS -->
+   <link rel="stylesheet" th:href="@{/resources/css/index.css}">
+   <link th:href="@{/resources/style.css}" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+</head>
+<body>
+
+   <div id="root">
+      <div id="loader" class="loader"></div>
+   </div>
+
+   <script th:src="@{/resources/vendor.bundle.js}"></script>
+   <script th:src="@{/resources/bundle.js}"></script>
+
+</body>
+</html>

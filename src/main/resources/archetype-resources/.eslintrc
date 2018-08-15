@@ -1,0 +1,51 @@
+{
+   "parser": "babel-eslint",
+   "plugins": [
+      "react",
+      "import"
+   ],
+   "settings": {
+      "import/resolver": {
+         "webpack": {
+            "config": "webpack.common.js"
+         }
+      }
+   },
+   "env": {
+      "node": true,
+      "es6": true
+   },
+   "globals": {
+      "APP_VERSION": false,
+      "REPO_URL": false,,
+      "Blob": false,
+      "document": false,
+      "window": false
+   },
+   "parserOptions": {
+       "ecmaVersion": 6,
+       "sourceType": "module",
+       "ecmaFeatures": {
+          "jsx": true,
+          "blockBindings": true
+       }
+    },
+   "rules": {
+      "quotes": ["error", "single"],
+      "react/prop-types": [2],
+      "max-len": [1, 220, 2, {"ignoreComments": true}],
+      "indent": ["error", 3],
+      "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+      "import/prefer-default-export": ["warn"],
+      "comma-dangle": ["error", "never"],
+      "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+      "arrow-parens": ["error", "always"],
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "padded-blocks": ["warn", { "classes": "always" }],
+      "class-methods-use-this": ["warn"]
+   },
+   "extends": [
+      "plugin:react/recommended",
+      "airbnb-base"
+   ]
+}
