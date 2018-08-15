@@ -3,7 +3,7 @@
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using React + Redux for the frontend.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.bernardomg.maven.archetypes/spring-mvc-react-archetype.svg)][maven-repo]
-[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/images/download.svg)][bintray-repo]
+[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-react-maven-archetype/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -64,7 +64,7 @@ The Maven coordinates and URL for it are:
 
 ```
 Group ID: com.bernardomg.maven.archetypes
-Artifact ID: spring-mvc-thymeleaf-maven-archetype
+Artifact ID: spring-mvc-react-maven-archetype
 Version: (Check POM or badges)
 URL: https://dl.bintray.com/bernardo-mg/maven/
 ```
@@ -72,7 +72,7 @@ URL: https://dl.bintray.com/bernardo-mg/maven/
 For example, to use it through command line type the following:
 
 ```
-$ mvn archetype:generate -DarchetypeGroupId=com.bernardomg.maven.archetypes -DarchetypeArtifactId=spring-mvc-thymeleaf-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
+$ mvn archetype:generate -DarchetypeGroupId=com.bernardomg.maven.archetypes -DarchetypeArtifactId=spring-mvc-react-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
 ```
 
 If using an IDE check its documentation to find out how to use Maven Archetypes, and how to add these to the local repository.
@@ -101,18 +101,18 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 ## License
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
+[bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-react-maven-archetype/view
 [maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype
 [junit]: http://junit.org
-[issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
+[issues]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: http://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype
-[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-thymeleaf-maven-archetype
-[site-release]: http://docs.bernardomg.com/maven/spring-mvc-thymeleaf-maven-archetype
+[scm]: http://github.com/Bernardo-MG/spring-mvc-react-maven-archetype
+[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-react-maven-archetype
+[site-release]: http://docs.bernardomg.com/maven/spring-mvc-react-maven-archetype
 
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
-[sample-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype-example
+[sample-project]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype-example
 
 [spring-mvc]: https://spring.io/
 
