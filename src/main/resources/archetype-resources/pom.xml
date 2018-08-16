@@ -124,6 +124,19 @@
       <!-- ============= DATABASE PROFILES ============== -->
       <!-- ============================================== -->
       <profile>
+         <!-- Properties-based database profile -->
+         <!-- Sets up the database from properties -->
+         <id>db-properties</id>
+         <activation>
+            <!-- Active by default -->
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <properties>
+            <!-- Authentication sources for the DB -->
+            <database.auth.source>properties</database.auth.source>
+         </properties>
+      </profile>
+      <profile>
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
          <id>h2</id>
@@ -158,8 +171,7 @@
             <!-- Access data -->
             <!-- Default values for testing and development -->
             <!-- Override them for production -->
-            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
-               "_")}</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-", "_")}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -182,7 +194,7 @@
             <!-- Access data -->
             <!-- Default values for testing and development -->
             <!-- Override them for production -->
-            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-","_")}</database.url>
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-", "_")}</database.url>
             <database.username>postgres</database.username>
             <database.password></database.password>
             <!-- Spring context -->
