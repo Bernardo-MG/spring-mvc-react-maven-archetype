@@ -973,14 +973,18 @@
                      </includes>
                   </resource>
                   <resource>
-                     <!-- Web resources -->
-                     <directory>${project.basedir}/src/main/webapp/WEB-INF/templates/fragments/</directory>
-                     <targetPath>WEB-INF/templates/fragments</targetPath>
-                     <includes>
-                        <!-- Filter the template footer -->
-                        <include>**.html</include>
-                     </includes>
+                     <!-- The UI template is filtered -->
                      <filtering>true</filtering>
+                     <directory>${project.basedir}/src/main/webapp/WEB-INF/templates</directory>
+                     <targetPath>WEB-INF/templates</targetPath>
+                     <includes>
+                        <include>index.html</include>
+                     </includes>
+                  </resource>
+                  <resource>
+                     <!-- Generated files -->
+                     <directory>${project.build.directory}/generated-ui</directory>
+                     <targetPath>resources/</targetPath>
                   </resource>
                </webResources>
                <!-- Variables to to override will be delimited with a @. -->
