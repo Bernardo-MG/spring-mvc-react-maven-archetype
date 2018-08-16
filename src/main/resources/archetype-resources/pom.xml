@@ -446,6 +446,20 @@
       <!-- ============================================== -->
       <manifest.name>${packageInPathFormat}</manifest.name>
       <!-- ============================================== -->
+      <!-- =============== TEMPLATE INFO ================ -->
+      <!-- ============================================== -->
+      <view.keywords>Dreadball, team builder</view.keywords>
+      <site.url>http://dreadball.bernardomg.com/</site.url>
+      <social.twitter>@BernardoMartG</social.twitter>
+      <!-- ============================================== -->
+      <!-- ============= NODE ENVIRONMENT =============== -->
+      <!-- ============================================== -->
+      <node.env.appVersion>v${project.version}</node.env.appVersion>
+      <node.env.repoUrl>${project.scm.url}</node.env.repoUrl>
+      <node.env.inputPath>./src/main/js/</node.env.inputPath>
+      <node.env.outputPath>./target/generated-ui/</node.env.outputPath>
+      <node.env.modules>./node_modules</node.env.modules>
+      <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
       <classmate.version>1.3.4</classmate.version>
