@@ -30,7 +30,7 @@
    <name>Spring MVC with React Maven Archetype</name>
    <description>A Maven Archetype for projects using Spring MVC, and React + Redux.</description>
    <url>https://www.github.com/bernardo-mg/spring-mvc-react-maven-archetype</url>
-   <inceptionYear>2015</inceptionYear>
+   <inceptionYear>2018</inceptionYear>
 
    <licenses>
       <license>
