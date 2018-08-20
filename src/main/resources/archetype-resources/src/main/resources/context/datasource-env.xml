@@ -9,6 +9,7 @@
       http://www.springframework.org/schema/util 
       http://www.springframework.org/schema/util/spring-util.xsd">
 
+   <!-- DB Access URI -->
    <bean class="java.net.URI" id="dbUrl">
       <constructor-arg value="#{systemEnvironment['DATABASE_URL']}" />
    </bean>
