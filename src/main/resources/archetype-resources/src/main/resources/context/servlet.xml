@@ -14,7 +14,6 @@
 
    <!-- Imports -->
    <import resource="classpath:context/view.xml" />
-   <import resource="classpath:context/messages.xml" />
    <import resource="classpath:context/mvc.xml" />
 
    <!-- Properties -->
@@ -24,5 +23,8 @@
 
    <!-- Scans for controllers -->
    <context:component-scan base-package="${package}.**.controller" />
+
+   <!-- Scans for JSON components -->
+   <context:component-scan base-package="${package}.**.json" />
 
 </beans>

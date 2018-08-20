@@ -64,14 +64,4 @@
    <!-- Activates transactionality -->
    <tx:annotation-driven transaction-manager="transactionManager" />
 
-   <!-- ============================== DATASOURCE =============================== -->
-
-   <!-- Data source -->
-   <bean id="dataSource" class="${jdbc.datasource.class}">
-      <property name="driverClassName" value="${jdbc.driver}" />
-      <property name="jdbcUrl" value="${jdbc.url}" />
-      <property name="username" value="${jdbc.username}" />
-      <property name="password" value="${jdbc.password}" />
-   </bean>
-
 </beans>

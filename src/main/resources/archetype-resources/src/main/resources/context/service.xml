@@ -8,6 +8,4 @@
    <!-- Scans for services -->
    <context:component-scan base-package="${package}.**.service" />
 
-   <!-- Other services -->
-
 </beans>
