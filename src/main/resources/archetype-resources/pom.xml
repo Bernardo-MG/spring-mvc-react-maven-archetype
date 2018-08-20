@@ -167,6 +167,12 @@
          <!-- MySQL database profile -->
          <!-- Prepares the project to make use of a MySQL database -->
          <id>mysql</id>
+         <activation>
+            <property>
+               <name>env.DATABASE_SYSTEM</name>
+               <value>mysql</value>
+            </property>
+         </activation>
          <properties>
             <!-- Access data -->
             <!-- Default values for testing and development -->
@@ -190,6 +196,12 @@
          <!-- Postgres database profile -->
          <!-- Prepares the project to make use of a Postgres database -->
          <id>postgres</id>
+         <activation>
+            <property>
+               <name>env.DATABASE_SYSTEM</name>
+               <value>postgres</value>
+            </property>
+         </activation>
          <properties>
             <!-- Access data -->
             <!-- Default values for testing and development -->
@@ -417,6 +429,55 @@
             </plugins>
          </build>
       </profile>
+      <!-- ============================================== -->
+      <!-- =============== HOST PROFILES ================ -->
+      <!-- ============================================== -->
+      <profile>
+         <!-- Heroku profiles -->
+         <!-- Sets up the project to be built by heroku -->
+         <id>heroku</id>
+         <activation>
+            <property>
+               <name>env.DYNO</name>
+            </property>
+         </activation>
+         <properties>
+            <!-- Spring context -->
+            <database.auth.source>env</database.auth.source>
+         </properties>
+         <build>
+            <plugins>
+               <plugin>
+                  <!-- Dependency plugin -->
+                  <!-- Used to copy the webapp runner -->
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-dependency-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>copy-webapp-runner</id>
+                        <phase>package</phase>
+                        <goals>
+                           <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                           <artifactItems>
+                              <artifactItem>
+                                 <groupId>com.github.jsimone</groupId>
+                                 <artifactId>webapp-runner</artifactId>
+                                 <version>${webappRunner.version}</version>
+                                 <destFileName>webapp-runner.jar</destFileName>
+                              </artifactItem>
+                           </artifactItems>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <!-- ============================================== -->
+      <!-- =========== BENCHMARKING PROFILES ============ -->
+      <!-- ============================================== -->
       <profile>
          <!-- Size report profile -->
          <id>size</id>
