@@ -47,13 +47,13 @@ The project can be run locally by using an embedded database and Jetty or Tomcat
 Use the following command to run the project using Jetty:
 
 ```
-$ mvn jetty:run-war -P h2,jetty
+$ mvn jetty:run-war -P h2,jetty,db-properties,development
 ```
 
 Or this one for Tomcat:
 
 ```
-$ mvn tomcat7:run-war -P h2,tomcat7
+$ mvn tomcat7:run-war -P h2,tomcat7,db-properties,development
 ```
 
 
