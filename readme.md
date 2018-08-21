@@ -107,8 +107,8 @@ The project has been released under the [MIT License][license].
 [issues]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php
 [scm]: http://github.com/Bernardo-MG/spring-mvc-react-maven-archetype
-[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-react-maven-archetype
-[site-release]: http://docs.bernardomg.com/maven/spring-mvc-react-maven-archetype
+[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-react-archetype
+[site-release]: http://docs.bernardomg.com/maven/spring-mvc-react-archetype
 
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
