@@ -30,9 +30,7 @@
    </bean>
 
    <!-- JSON -->
-   <bean id="jsonMessageConverter" class="${converter.json.class}">
-      <property name="objectMapper" ref="dreadballObjectMapper" />
-   </bean>
+   <bean id="jsonMessageConverter" class="${converter.json.class}" />
 
    <!-- Static resources -->
    <mvc:resources mapping="/resources/**" location="/resources/">
