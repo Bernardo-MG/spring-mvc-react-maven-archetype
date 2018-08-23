@@ -16,8 +16,6 @@ import Title from 'grommet/components/Title';
 
 import CloseIcon from 'grommet/components/icons/base/Close';
 
-import SocialGithubIcon from 'grommet/components/icons/base/SocialGithub';
-
 import { toggleNavBar, hideNavBarOnSmallScreen } from 'views/actions';
 
 import { selectNavbarVisible } from 'views/selectors';
@@ -41,8 +39,7 @@ const MainSidebar = (props) =>
          )}
       </Menu>
       <Footer pad='small' direction='column'>
-         <Box>Dreadball © Mantic</Box>
-         <Box direction='row' align='center'>{APP_VERSION} <Button href={REPO_URL} icon={<SocialGithubIcon/>} /></Box>
+         { props.footer }
       </Footer>
    </Sidebar>;
 
@@ -53,6 +50,11 @@ MainSidebar.propTypes = {
    onClickLink: PropTypes.func.isRequired,
    /** Application title */
    title: PropTypes.string,
+   /** Footer */
+   footer: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
+   ]),
    /** Navigation links */
    links: PropTypes.arrayOf(PropTypes.shape({
       label: PropTypes.string,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import BaseLayout from 'views/containers/BaseLayout';
+import BaseLayout from 'layouts/containers/BaseLayout';
 
 /**
  * All the routes for the application.
