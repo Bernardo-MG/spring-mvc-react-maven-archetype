@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Root from 'containers/Root';
+import Root from 'root/containers/Root';
 import { createHistory } from 'history';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useRouterHistory } from 'react-router';
