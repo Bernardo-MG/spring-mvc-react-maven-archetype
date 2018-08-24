@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import About from 'layout/containers/About';
 import BaseLayout from 'layout/containers/BaseLayout';
