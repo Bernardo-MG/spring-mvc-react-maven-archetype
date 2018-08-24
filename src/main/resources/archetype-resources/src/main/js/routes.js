@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import BaseLayout from 'layouts/containers/BaseLayout';
+import About from 'about/containers/About';
 
 /**
  * All the routes for the application.
@@ -12,4 +13,6 @@ import BaseLayout from 'layouts/containers/BaseLayout';
  * - Component to show
  */
 export default <Route path='/' component={BaseLayout}>
+   <IndexRoute component={Index}/>
+   <Route path='/about' activeClassName='aboutLink' component={About}/>
 </Route>;
