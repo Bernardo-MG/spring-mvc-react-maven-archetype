@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import BaseLayout from 'layouts/containers/BaseLayout';
-import About from 'about/containers/About';
+import About from 'layout/containers/About';
+import BaseLayout from 'layout/containers/BaseLayout';
+import Index from 'layout/containers/Index';
 
 /**
  * All the routes for the application.

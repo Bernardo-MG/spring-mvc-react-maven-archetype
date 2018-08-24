@@ -9,8 +9,12 @@ const titleMessages = defineMessages({
       defaultMessage: 'About'
    },
    data: {
-      id: 'title.link.dbx.list',
-      defaultMessage: 'DBX Players'
+      id: 'title.link.data',
+      defaultMessage: 'Data'
+   },
+   title: {
+      id: 'title.app',
+      defaultMessage: 'Application'
    }
 });
 
