@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { injectIntl } from 'react-intl';
 
-import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 
