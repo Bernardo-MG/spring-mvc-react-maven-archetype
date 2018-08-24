@@ -42,8 +42,7 @@
       "arrow-parens": ["error", "always"],
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
       "padded-blocks": ["warn", { "classes": "always" }],
-      "class-methods-use-this": ["warn"],
-      "linebreak-style": ["warn"],
+      "class-methods-use-this": ["warn"]
    },
    "extends": [
       "plugin:react/recommended",
