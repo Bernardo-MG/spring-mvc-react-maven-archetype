@@ -38,12 +38,12 @@ import org.junit.runner.RunWith;
 
 import ${package}.controller.error.GlobalExceptionHandler;
 import ${package}.controller.error.ErrorViewConstants;
-import ${package}.controller.entity.ExampleEntityFormController;
+import ${package}.controller.entity.ExampleEntityController;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityFormController}, checking the methods for
+ * Unit tests for {@link ExampleEntityController}, checking the methods for
  * sending the form data.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
@@ -99,7 +99,7 @@ public final class TestGlobalExceptionHandler {
      * 
      * @return a mocked controller
      */
-    private final ExampleEntityFormController getController() {
+    private final ExampleEntityController getController() {
         final ExampleEntityService service; // Mocked service
 
         service = Mockito.mock(ExampleEntityService.class);
@@ -107,7 +107,7 @@ public final class TestGlobalExceptionHandler {
         Mockito.when(service.getAllEntities())
                 .thenThrow(RuntimeException.class);
 
-        return new ExampleEntityFormController(service);
+        return new ExampleEntityController(service);
     }
 
     /**
