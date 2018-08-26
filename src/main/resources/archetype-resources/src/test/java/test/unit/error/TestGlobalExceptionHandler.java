@@ -120,7 +120,7 @@ public final class TestGlobalExceptionHandler {
      * @return a request builder for posting the form data
      */
     private final RequestBuilder getFormRequest() {
-        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)
+        return MockMvcRequestBuilders.post(UrlConfig.URL_REST)
                 .param("name", "name");
     }
 

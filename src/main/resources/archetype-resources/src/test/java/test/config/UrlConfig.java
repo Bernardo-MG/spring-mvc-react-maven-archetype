@@ -32,21 +32,6 @@ package ${package}.test.config;
 public final class UrlConfig {
 
     /**
-     * Form view URL.
-     */
-    public static final String URL_FORM      = "/entity/edit";
-
-    /**
-     * URL for posting the form data.
-     */
-    public static final String URL_FORM_POST = "/entity";
-
-    /**
-     * Entities list view URL.
-     */
-    public static final String URL_LIST      = "/entity/list";
-
-    /**
      * Entities REST URL.
      */
     public static final String URL_REST      = "/rest/entity";
