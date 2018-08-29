@@ -28,9 +28,15 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.bernardomg.model.ExampleEntity;
+import com.bernardomg.model.persistence.DefaultExampleEntity;
 
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -64,6 +70,22 @@ public class ExampleEntityController {
     }
 
     /**
+     * Creates an entity.
+     */
+    @PostMapping
+    public final void createEntity(final DefaultExampleEntity entity) {
+        getExampleEntityService().add(entity);
+    }
+
+    /**
+     * Deletes an entity.
+     */
+    @DeleteMapping
+    public final void deleteEntity(final DefaultExampleEntity entity) {
+        getExampleEntityService().remove(entity);
+    }
+
+    /**
      * Returns a paginated collection of entities.
      * 
      * @param page
@@ -71,8 +93,17 @@ public class ExampleEntityController {
      * @return a paginated collection of entities
      */
     @GetMapping
-    public final Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
+    public final Iterable<? extends ExampleEntity>
+            readEntities(final Pageable page) {
         return getExampleEntityService().getEntities(page);
+    }
+
+    /**
+     * Updates an entity.
+     */
+    @PutMapping
+    public final void updateEntity(final DefaultExampleEntity entity) {
+        getExampleEntityService().add(entity);
     }
 
     /**
