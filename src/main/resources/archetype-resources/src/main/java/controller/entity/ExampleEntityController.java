@@ -35,9 +35,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bernardomg.model.ExampleEntity;
-import com.bernardomg.model.persistence.DefaultExampleEntity;
-
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 
