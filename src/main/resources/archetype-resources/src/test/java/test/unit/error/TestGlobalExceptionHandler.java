@@ -24,27 +24,25 @@
 
 package ${package}.test.unit.error;
 
-import org.mockito.Mockito;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.controller.error.GlobalExceptionHandler;
-import ${package}.controller.error.ErrorViewConstants;
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityController}, checking the methods for
- * sending the form data.
+ * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -74,24 +72,19 @@ public final class TestGlobalExceptionHandler {
 
         exceptionHandler = new GlobalExceptionHandler();
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
-                .alwaysExpect(MockMvcResultMatchers.status().isOk())
+                .setCustomArgumentResolvers(
+                        new PageableHandlerMethodArgumentResolver())
+                .alwaysExpect(MockMvcResultMatchers.status().is5xxServerError())
                 .setControllerAdvice(exceptionHandler).build();
     }
 
     /**
-     * Verifies that after received valid form data the expected view is
-     * returned.
+     * Verifies that when an exception is thrown in the backend an error
+     * response is returned.
      */
     @Test
-    public final void testSendFormData_ExpectedView() throws Exception {
-        final ResultActions result; // Request result
-
-        // TODO: Just verify it is not this same view
-        result = mockMvc.perform(getFormRequest());
-
-        // The view is valid
-        result.andExpect(MockMvcResultMatchers.view()
-                .name(ErrorViewConstants.VIEW_ERROR));
+    public final void testSendFormData_ErrorResponse() throws Exception {
+        mockMvc.perform(getFormRequest());
     }
 
     /**
@@ -104,7 +97,7 @@ public final class TestGlobalExceptionHandler {
 
         service = Mockito.mock(ExampleEntityService.class);
 
-        Mockito.when(service.getAllEntities())
+        Mockito.when(service.getEntities(Mockito.any()))
                 .thenThrow(RuntimeException.class);
 
         return new ExampleEntityController(service);
@@ -120,8 +113,7 @@ public final class TestGlobalExceptionHandler {
      * @return a request builder for posting the form data
      */
     private final RequestBuilder getFormRequest() {
-        return MockMvcRequestBuilders.post(UrlConfig.URL_REST)
-                .param("name", "name");
+        return MockMvcRequestBuilders.get(UrlConfig.URL_REST);
     }
 
 }

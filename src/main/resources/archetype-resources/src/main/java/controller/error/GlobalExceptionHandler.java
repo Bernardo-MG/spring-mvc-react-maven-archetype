@@ -24,17 +24,16 @@
 
 package ${package}.controller.error;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
-
-import ${package}.controller.error.ErrorViewConstants;
 
 /**
  * Captures and handles exceptions for all the controllers.
@@ -48,7 +47,7 @@ public final class GlobalExceptionHandler
     /**
      * Logger for the exception handler.
      */
-    private static final Logger LOGGER         = LoggerFactory
+    private static final Logger LOGGER = LoggerFactory
             .getLogger(GlobalExceptionHandler.class);
 
     /**
@@ -62,16 +61,14 @@ public final class GlobalExceptionHandler
     protected ModelAndView doResolveException(final HttpServletRequest request,
             final HttpServletResponse response, final Object handler,
             final Exception ex) {
-        final ModelAndView modelView;
 
         LOGGER.error(ex.getMessage(), ex);
 
-        modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
-        modelView.getModel().put("code",
-                HttpStatus.INTERNAL_SERVER_ERROR.value());
-        modelView.getModel().put("message", ex.getMessage());
+        try {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (final IOException e) {}
 
-        return modelView;
+        return new ModelAndView();
     }
 
 }
