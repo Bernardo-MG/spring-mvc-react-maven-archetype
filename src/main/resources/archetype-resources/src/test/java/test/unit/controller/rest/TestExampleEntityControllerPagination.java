@@ -35,13 +35,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.controller.entity.ExampleEntityRestController;
+import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * TeamPlayer tests for {@link ExampleEntityRestController}, validating the
+ * TeamPlayer tests for {@link ExampleEntityController}, validating the
  * results of REST requests.
  * <p>
  * The tested controller gives support only for GET requests.
@@ -49,7 +49,7 @@ import ${package}.test.config.UrlConfig;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RunWith(JUnitPlatform.class)
-public final class TestExampleEntityRestControllerPagination {
+public final class TestExampleEntityControllerPagination {
 
     /**
      * Argument captor for pagination data.
@@ -69,7 +69,7 @@ public final class TestExampleEntityRestControllerPagination {
     /**
      * Default constructor;
      */
-    public TestExampleEntityRestControllerPagination() {
+    public TestExampleEntityControllerPagination() {
         super();
 
         service = getExampleEntityService();
@@ -81,7 +81,7 @@ public final class TestExampleEntityRestControllerPagination {
     @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders
-                .standaloneSetup(new ExampleEntityRestController(service))
+                .standaloneSetup(new ExampleEntityController(service))
                 .setCustomArgumentResolvers(
                         new PageableHandlerMethodArgumentResolver())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())

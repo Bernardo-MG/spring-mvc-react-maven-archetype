@@ -35,13 +35,13 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.controller.entity.ExampleEntityRestController;
+import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * TeamPlayer tests for {@link ExampleEntityRestController}, validating the
+ * TeamPlayer tests for {@link ExampleEntityController}, validating the
  * results of REST requests.
  * <p>
  * The tested controller gives support only for GET requests.
@@ -49,7 +49,7 @@ import ${package}.test.config.UrlConfig;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RunWith(JUnitPlatform.class)
-public final class TestExampleEntityRestController {
+public final class TestExampleEntityController {
 
     /**
      * Mocked MVC context.
@@ -59,7 +59,7 @@ public final class TestExampleEntityRestController {
     /**
      * Default constructor;
      */
-    public TestExampleEntityRestController() {
+    public TestExampleEntityController() {
         super();
     }
 
@@ -100,7 +100,7 @@ public final class TestExampleEntityRestController {
      * @return a controller with mocked dependencies
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    private final ExampleEntityRestController getController() {
+    private final ExampleEntityController getController() {
         final ExampleEntityService service;   // Mocked service
         final Collection<ExampleEntity> entities; // Returned entities
 
@@ -114,7 +114,7 @@ public final class TestExampleEntityRestController {
         Mockito.when(service.getEntities(ArgumentMatchers.any()))
                 .thenReturn((Iterable) entities);
 
-        return new ExampleEntityRestController(service);
+        return new ExampleEntityController(service);
     }
 
     /**
