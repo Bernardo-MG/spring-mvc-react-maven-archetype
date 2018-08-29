@@ -62,7 +62,7 @@ public class ExampleEntityController {
      *            example entity service
      */
     @Autowired
-    public ExampleEntityRestController(final ExampleEntityService service) {
+    public ExampleEntityController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,
