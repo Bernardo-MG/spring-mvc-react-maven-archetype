@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
