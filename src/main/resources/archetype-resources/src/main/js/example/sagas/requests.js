@@ -1,9 +1,9 @@
 import { put, call, select } from 'redux-saga/effects';
-import * as types from 'players/actions/actionTypes';
-import { fetcherPlayer as fetcher } from 'players/requests/fetchers';
-import { selectCanLoadPlayer as canLoadSelector } from 'players/selectors/request';
-import { selectCurrentPlayerPage as currentPageSelector } from 'players/selectors/page';
-import { requestSuccess, requestFailure } from 'players/actions/players';
+import * as types from 'example/actions/actionTypes';
+import { fetcherPlayer as fetcher } from 'example/requests/fetchers';
+import { selectCanLoadPlayer as canLoadSelector } from 'example/selectors/request';
+import { selectCurrentPlayerPage as currentPageSelector } from 'example/selectors/page';
+import { requestSuccess, requestFailure } from 'example/actions/players';
 
 export function fetch(params) {
    return fetcher.fetch(params);

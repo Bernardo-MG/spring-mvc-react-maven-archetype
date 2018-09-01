@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects';
-import * as types from 'players/actions/actionTypes';
+import * as types from 'example/actions/actionTypes';
 
 export function* build(action) {
    if (action.payload) {

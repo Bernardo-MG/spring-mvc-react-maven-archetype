@@ -4,7 +4,7 @@ import views from 'views/reducers';
 import entities from 'example/reducers/pagination';
 
 const pagination = combineReducers({
-   players
+   entities
 });
 
 const dreadballApp = combineReducers({
@@ -13,4 +13,4 @@ const dreadballApp = combineReducers({
    views
 });
 
-export default dreadballApp;
+export default app;
