@@ -7,10 +7,10 @@ const pagination = combineReducers({
    entities
 });
 
-const dreadballApp = combineReducers({
+const rootReducer = combineReducers({
    pagination,
    routing,
    views
 });
 
-export default app;
+export default rootReducer;

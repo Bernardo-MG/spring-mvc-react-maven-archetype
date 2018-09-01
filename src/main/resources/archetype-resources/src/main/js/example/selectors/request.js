@@ -1,4 +1,4 @@
-import { selectLastEntityPage, selectLastRatedEntityPage } from 'example/selectors/page';
+import { selectLastEntityPage } from 'example/selectors/page';
 
 /**
  * Returns the flag marking if the entities are being fetched.
