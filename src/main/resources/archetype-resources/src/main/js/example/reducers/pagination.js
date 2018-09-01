@@ -23,6 +23,6 @@ const getEntityIds = (payload) => {
  * Players pagination reducer.
  */
 export const entities = paginate({
-   idsMapping: (payload) => getPlayerIds(payload),
+   idsMapping: (payload) => getEntityIds(payload),
    store: 'ENTITIES'
 });

@@ -1,7 +1,7 @@
 import { takeLatest } from 'redux-saga/effects';
-import * as types from 'players/actions/actionTypes';
-import { requestCurrentPage, requestNextPage } from 'players/sagas/requests';
-import { build } from 'players/sagas/creators';
+import * as types from 'example/actions/actionTypes';
+import { requestCurrentPage, requestNextPage } from 'example/sagas/requests';
+import { build } from 'example/sagas/creators';
 
 export const entitySagas = [
    takeLatest(types.REQUEST_ENTITIES, requestCurrentPage),

@@ -1,4 +1,5 @@
 import { entitySagas } from 'example/sagas';
+import { all } from 'redux-saga/effects';
 
 /**
  * Application redux sagas.

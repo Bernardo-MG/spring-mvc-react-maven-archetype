@@ -1,6 +1,6 @@
 import { CREATE_ENTITIES } from 'example/actions/actionTypes';
 
-const model = (state = { abilities: {}, affinities: {}, players: {}, ratedPlayers: {} }, action) => {
+const model = (state = { entities: {} }, action) => {
    const { type, payload } = action;
 
    if (payload === undefined) {
