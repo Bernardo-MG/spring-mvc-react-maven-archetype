@@ -49,7 +49,7 @@ class BaseLayout extends Component {
       let nav;
       if (this.props.navbarVisible) {
          const links = [];
-         links.push({ path: '/data', label: this.props.intl.formatMessage(titleMessages.data) });
+         links.push({ path: '/list', label: this.props.intl.formatMessage(titleMessages.data) });
          links.push({ path: '/about', label: this.props.intl.formatMessage(titleMessages.about) });
 
          const title = this.props.intl.formatMessage(appMessages.name);
