@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import About from 'layout/containers/About';
+import EntityListView from 'example/views/EntityListView';
 import BaseLayout from 'layout/containers/BaseLayout';
 import Index from 'layout/containers/Index';
 
@@ -15,5 +16,6 @@ import Index from 'layout/containers/Index';
  */
 export default <Route path='/' component={BaseLayout}>
    <IndexRoute component={Index}/>
+   <Route path='/list' activeClassName='aboutLink' component={EntityListView}/>
    <Route path='/about' activeClassName='aboutLink' component={About}/>
 </Route>;

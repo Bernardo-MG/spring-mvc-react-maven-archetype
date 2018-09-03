@@ -15,6 +15,10 @@ const titleMessages = defineMessages({
    title: {
       id: 'title.app',
       defaultMessage: 'Application'
+   },
+   entitiesList: {
+      id: 'title.entities.list',
+      defaultMessage: 'Entities'
    }
 });
 
