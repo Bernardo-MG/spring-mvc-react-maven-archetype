@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { moveNextPage } from 'example/actions';
-import { selectPlayers } from 'example/selectors';
-import { selectCanLoadPlayer as selectCanLoad } from 'example/selectors/request';
+import { selectEntities } from 'example/selectors';
+import { selectCanLoadEntity as selectCanLoad } from 'example/selectors/request';
 
 import EntityDataList from 'example/components/EntityDataList';
 
@@ -25,7 +25,7 @@ EntityScrollPanel.propTypes = {
 
 const mapStateToProps = (state) => {
    return {
-      entities: selectPlayers(state),
+      entities: selectEntities(state),
       canLoad: selectCanLoad(state)
    };
 };
