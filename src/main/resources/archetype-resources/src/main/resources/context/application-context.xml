@@ -10,16 +10,14 @@
 
    <!-- Properties -->
    <context:property-placeholder
-      location="classpath:config/persistence-@database.tag@.properties, 
-                   classpath:config/persistence-access.properties,
-                   classpath:config/persistence.properties" />
+      location="classpath:config/persistence.properties,
+                   classpath:config/persistence-@database.tag@.properties, 
+                   classpath:config/persistence-access.properties" />
 
    <!-- Imports -->
+   <import resource="classpath:context/datasource-@database.auth.source@.xml" />
    <import resource="classpath:context/persistence.xml" />
    <import resource="classpath:context/persistence-versioning.xml" />
    <import resource="classpath:context/service.xml" />
-
-   <!-- Auto scan -->
-   <context:component-scan base-package="${package}.**.service" />
 
 </beans>
