@@ -11,7 +11,7 @@ jdk:
   - oraclejdk8
 env:
   # Doc deployment
-  - SERVER=jetty DATABASE=h2 DEPLOY_DOCS=true
+  - SERVER=jetty DATABASE=h2 ENV=development DEPLOY_DOCS=true
   # Production build
   - SERVER=jetty DATABASE=h2 ENV=production
   # MySQL
