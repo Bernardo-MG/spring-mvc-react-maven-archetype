@@ -14,7 +14,6 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using R
 - [React][react] and [Redux][redux] for the backend.
 - Initial sample project including working persistence and exception handling
 - Using [Liquibase][liquibase] for database versioning.
-- Integrates with [Jasper Reports][jasper] for generating PDFs.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Prepared for continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [JUnit][junit] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
@@ -115,8 +114,6 @@ The project has been released under the [MIT License][license].
 [sample-project]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype-example
 
 [spring-mvc]: https://spring.io/
-
-[jasper]: http://community.jaspersoft.com/
 
 [liquibase]: http://www.liquibase.org/
 

@@ -9,7 +9,6 @@ In this case this Archetype creates a [Spring MVC][spring-mvc] application, usin
 - Creates the base for a [Spring MVC][spring-mvc] project.
 - [React][react] and [Redux][redux] for the backend.
 - Using [Liquibase][liquibase] for database versioning.
-- Integrates with [Jasper Reports][jasper] for generating PDFs.
 - [bernardomg's Base POM][base-pom] used as parent POM.
 - [Unit and integration test][tests] suites are run separatedly with the use of [JUnit][junit].
 - [Maven site for the project][site], using the [Docs Maven Skin][docs-skin], for creating a small documentation site.
@@ -61,7 +60,6 @@ $ mvn tomcat7:run-war -P h2,tomcat7,db-properties,development
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [example-project]: https://github.com/Bernardo-MG/spring-mvc-react-archetype-example
 
-[jasper]: http://community.jaspersoft.com/
 [liquibase]: http://www.liquibase.org/
 [spring-mvc]: https://spring.io/
 [junit]: http://junit.org
