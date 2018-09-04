@@ -3,21 +3,21 @@ import { REQUEST_ENTITIES, CHANGE_PAGE_PREV_ENTITIES, CHANGE_PAGE_NEXT_ENTITIES,
 export const fetch = () => {
    return {
       type: REQUEST_ENTITIES,
-      params: { sort: 'templateName' }
+      params: { sort: 'name' }
    };
 };
 
 export const movePrevPage = () => {
    return {
       type: CHANGE_PAGE_PREV_ENTITIES,
-      params: { sort: 'templateName' }
+      params: { sort: 'name' }
    };
 };
 
 export const moveNextPage = () => {
    return {
       type: CHANGE_PAGE_NEXT_ENTITIES,
-      params: { sort: 'templateName' }
+      params: { sort: 'name' }
    };
 };
 
