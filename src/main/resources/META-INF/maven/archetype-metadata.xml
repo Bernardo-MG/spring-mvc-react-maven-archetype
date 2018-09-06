@@ -156,12 +156,18 @@
             <include>**/*.*</include>
          </includes>
       </fileSet>
+      <fileSet filtered="true" encoding="UTF-8">
+         <!-- Frontend project files -->
+         <directory></directory>
+         <includes>
+            <include>package.json</include>
+         </includes>
+      </fileSet>
       <fileSet encoding="UTF-8">
          <!-- Frontend files -->
          <directory></directory>
          <includes>
             <include>webpack.*.js</include>
-            <include>package.json</include>
             <include>.babelrc</include>
             <include>.eslintrc</include>
          </includes>

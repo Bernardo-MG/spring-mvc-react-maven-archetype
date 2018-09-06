@@ -1,20 +1,17 @@
 {
-   "name": "dreadball-toolkit-webapp",
-   "version": "0.1.0",
-   "description": "A team builder and utilities page for Dreadball",
-   "author": "Bernardo Mart�nez Garrido",
-   "homepage": "https://www.github.com/bernardo-mg/dreadball-toolkit-webapp",
-   "license": "Apache-2.0",
-   "keywords": [
-      "dreadball",
-      "team builder"
-   ],
+   "name": "${artifactId}",
+   "version": "${version}",
+   "description": "${projectDescription}",
+   "author": "${developerName}",
+   "homepage": "https://github.com/${repoUserId}/${artifactId}",
+   "license": "MIT",
+   "keywords": [],
    "repository": {
       "type": "git",
-      "url": "git@github.com:bernardo-mg/dreadball-toolkit-webapp.git"
+      "url": "git@github.com:${repoUserId}/${artifactId}.git"
    },
    "bugs": {
-      "url": "https://www.github.com/bernardo-mg/dreadball-toolkit-webapp/issues"
+      "url": "https://www.github.com/${repoUserId}/${artifactId}/issues"
    },
    "scripts": {
       "development": "webpack --config webpack.dev.js",
