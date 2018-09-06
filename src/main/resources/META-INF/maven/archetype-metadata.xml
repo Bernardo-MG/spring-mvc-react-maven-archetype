@@ -25,6 +25,9 @@
       <requiredProperty key="developerUrl">
          <defaultValue>https://github.com/Bernardo-MG</defaultValue>
       </requiredProperty>
+      <requiredProperty key="twitter">
+         <defaultValue>@BernardoMartG</defaultValue>
+      </requiredProperty>
       <requiredProperty key="repoUserId">
          <defaultValue>bernardo-mg</defaultValue>
       </requiredProperty>
@@ -33,6 +36,12 @@
       </requiredProperty>
       <requiredProperty key="urlSiteRelease">
          <defaultValue>https://</defaultValue>
+      </requiredProperty>
+      <requiredProperty key="keywords">
+         <defaultValue>keywords</defaultValue>
+      </requiredProperty>
+      <requiredProperty key="siteUrl">
+         <defaultValue>https://application.com</defaultValue>
       </requiredProperty>
    </requiredProperties>
    <fileSets>

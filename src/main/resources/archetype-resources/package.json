@@ -5,7 +5,9 @@
    "author": "${developerName}",
    "homepage": "https://github.com/${repoUserId}/${artifactId}",
    "license": "MIT",
-   "keywords": [],
+   "keywords": [
+      ${keywords}
+   ],
    "repository": {
       "type": "git",
       "url": "git@github.com:${repoUserId}/${artifactId}.git"

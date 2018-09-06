@@ -553,9 +553,9 @@
       <!-- ============================================== -->
       <!-- =============== TEMPLATE INFO ================ -->
       <!-- ============================================== -->
-      <view.keywords>Dreadball, team builder</view.keywords>
-      <site.url>http://dreadball.bernardomg.com/</site.url>
-      <social.twitter>@BernardoMartG</social.twitter>
+      <view.keywords>${keywords}</view.keywords>
+      <site.url>${siteUrl}</site.url>
+      <social.twitter>${twitter}</social.twitter>
       <!-- ============================================== -->
       <!-- ============= NODE ENVIRONMENT =============== -->
       <!-- ============================================== -->
