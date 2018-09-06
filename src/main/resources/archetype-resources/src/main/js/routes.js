@@ -16,6 +16,6 @@ import Index from 'layout/containers/Index';
  */
 export default <Route path='/' component={BaseLayout}>
    <IndexRoute component={Index}/>
-   <Route path='/list' activeClassName='aboutLink' component={EntityListView}/>
+   <Route path='/list' activeClassName='listLink' component={EntityListView}/>
    <Route path='/about' activeClassName='aboutLink' component={About}/>
 </Route>;
