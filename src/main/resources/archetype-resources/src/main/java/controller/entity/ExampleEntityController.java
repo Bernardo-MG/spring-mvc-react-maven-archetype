@@ -69,6 +69,9 @@ public class ExampleEntityController {
 
     /**
      * Creates an entity.
+     * 
+     * @param entity
+     *            entity to create
      */
     @PostMapping
     public final void createEntity(final DefaultExampleEntity entity) {
@@ -77,6 +80,9 @@ public class ExampleEntityController {
 
     /**
      * Deletes an entity.
+     * 
+     * @param entity
+     *            entity to delete
      */
     @DeleteMapping
     public final void deleteEntity(final DefaultExampleEntity entity) {
@@ -98,6 +104,9 @@ public class ExampleEntityController {
 
     /**
      * Updates an entity.
+     * 
+     * @param entity
+     *            entity to update
      */
     @PutMapping
     public final void updateEntity(final DefaultExampleEntity entity) {
