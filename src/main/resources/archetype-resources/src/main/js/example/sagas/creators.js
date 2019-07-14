@@ -3,7 +3,7 @@ import * as types from 'example/actions/actionTypes';
 
 export function* build(action) {
    if (action.payload) {
-      const entities = action.payload.entities;
+      const { entities } = action.payload;
 
       yield put({ type: types.CREATE_ENTITIES, payload: entities.entities });
    } else {

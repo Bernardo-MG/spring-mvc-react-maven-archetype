@@ -1,9 +1,6 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
-import About from 'layout/containers/About';
-import EntityListView from 'example/views/EntityListView';
-import BaseLayout from 'layout/containers/BaseLayout';
 import Index from 'layout/containers/Index';
 
 /**
@@ -14,8 +11,6 @@ import Index from 'layout/containers/Index';
  * - Class name to mark links as active
  * - Component to show
  */
-export default <Route path='/' component={BaseLayout}>
-   <IndexRoute component={Index}/>
-   <Route path='/list' activeClassName='listLink' component={EntityListView}/>
-   <Route path='/about' activeClassName='aboutLink' component={About}/>
-</Route>;
+export default <Switch>
+   <Route path='/' exact component={Index}/>
+</Switch>;

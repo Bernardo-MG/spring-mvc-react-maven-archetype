@@ -1,14 +1,63 @@
 {
-   "presets": [
-      [ "env", {
-         "targets": { node: "6" },
-      } ],
-      "stage-0",
-      "react"
+   "presets":[
+      [
+         "@babel/preset-env",
+         {
+            "targets":{
+               "browsers":[
+                  "last 2 versions"
+               ]
+            },
+            "modules":false,
+            "corejs": "2",
+            "forceAllTransforms":true,
+            useBuiltIns: "usage"
+         }
+      ],
+      [
+         "@babel/preset-react"
+      ]
    ],
-   "env": {
-      "test": {
-         "presets": ["es2015", "stage-1", "react", "flow"]
+   "plugins":[
+      "@babel/plugin-proposal-function-bind",
+      "@babel/plugin-proposal-class-properties",
+      [
+         "@babel/plugin-proposal-object-rest-spread",
+         {
+            "useBuiltIns":"usage"
+         }
+      ],
+      [
+         "react-intl",
+         {
+            "messagesDir":"./build/messages/"
+         }
+      ]
+   ],
+   "env":{
+      "test":{
+         "presets":[
+            "@babel/preset-env",
+            "@babel/preset-react"
+         ]
+      },
+      "development":{
+         "presets":[
+            [
+               "@babel/preset-env",
+               {
+                  "debug":true,
+                  useBuiltIns: "usage"
+               }
+            ],
+            [
+               "@babel/preset-react",
+               {
+                  "development":true,
+                  useBuiltIns: "usage"
+               }
+            ]
+         ]
       }
    }
 }

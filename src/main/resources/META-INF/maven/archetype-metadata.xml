@@ -38,7 +38,7 @@
          <defaultValue>https://</defaultValue>
       </requiredProperty>
       <requiredProperty key="keywords">
-         <defaultValue>keywords</defaultValue>
+         <defaultValue>"keywords"</defaultValue>
       </requiredProperty>
       <requiredProperty key="siteUrl">
          <defaultValue>https://application.com</defaultValue>
@@ -58,6 +58,7 @@
          <includes>
             <include>**/*.js</include>
             <include>**/*.scss</include>
+            <include>**/*.json</include>
          </includes>
       </fileSet>
       <fileSet filtered="true" encoding="UTF-8">
