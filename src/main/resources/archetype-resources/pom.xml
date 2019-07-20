@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.2.2</version>
+      <version>1.2.4</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -596,15 +596,15 @@
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.frontend.node.version>v6.11.3</plugin.frontend.node.version>
-      <plugin.frontend.npm.version>5.4.2</plugin.frontend.npm.version>
-      <plugin.frontend.version>1.6</plugin.frontend.version>
+      <plugin.frontend.node.version>v12.3.1</plugin.frontend.node.version>
+      <plugin.frontend.npm.version>6.9.0</plugin.frontend.npm.version>
+      <plugin.frontend.version>1.7.6</plugin.frontend.version>
       <plugin.jetty.version>9.4.8.v20171121</plugin.jetty.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>1.4.1</site.skin.version>
+      <site.skin.version>1.4.2</site.skin.version>
    </properties>
 
    <!-- ********************************************** -->

@@ -2,7 +2,8 @@
    "parser":"babel-eslint",
    "plugins":[
       "react",
-      "import"
+      "import",
+      "react-hooks"
    ],
    "settings":{
       "import/resolver":{
@@ -108,7 +109,9 @@
          {
             "ImportDeclaration":"never"
          }
-      ]
+      ],
+      "react-hooks/rules-of-hooks":"error",
+      "react-hooks/exhaustive-deps":"warn"
    },
    "extends":[
       "plugin:react/recommended",
