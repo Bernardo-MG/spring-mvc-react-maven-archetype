@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import '@babel/register';
 
-import Root from 'root/containers/Root';
+import Root from 'root';
 import configureStore from 'store/configureStore';
 
 import { addLocaleData } from 'react-intl';
