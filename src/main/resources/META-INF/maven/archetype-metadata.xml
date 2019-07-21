@@ -8,10 +8,10 @@
          <defaultValue>Spring MVC Project</defaultValue>
       </requiredProperty>
       <requiredProperty key="projectDescription">
-         <defaultValue>A Spring MVC project using Thymeleaf for the views.</defaultValue>
+         <defaultValue>A Spring MVC project using React+Redux for the views.</defaultValue>
       </requiredProperty>
       <requiredProperty key="currentYear">
-         <defaultValue>2017</defaultValue>
+         <defaultValue>2019</defaultValue>
       </requiredProperty>
       <requiredProperty key="developerId">
          <defaultValue>bmg</defaultValue>
