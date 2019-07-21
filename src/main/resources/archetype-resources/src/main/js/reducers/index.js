@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import model from 'example/reducers';
+import entity from 'entities/reducers';
+import search from 'search/reducers';
 
 const rootReducer = combineReducers({
-   model
+   entity,
+   search
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
 import Index from 'views/components/Index';
-import DefaultSideMenuLayout from 'views/components/DefaultSideMenuLayout';
+import DataView from 'views/containers/DataView';
 
-export { Index, DefaultSideMenuLayout };
+export { DataView, Index };

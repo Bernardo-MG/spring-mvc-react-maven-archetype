@@ -8,7 +8,7 @@ import { HashRouter as Router } from 'react-router-dom';
 
 import { IntlProvider } from 'react-intl';
 
-import DevMonitor from 'development';
+import { DevMonitor } from 'development';
 
 /**
  * Development root application.

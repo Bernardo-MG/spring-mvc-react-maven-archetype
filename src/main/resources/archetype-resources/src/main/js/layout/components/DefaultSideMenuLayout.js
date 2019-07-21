@@ -6,7 +6,7 @@ import sideLinks from 'config/links';
 
 import { title } from 'config/app';
 
-import SideMenuLayout from 'views/components/SideMenuLayout';
+import SideMenuLayout from 'layout/components/SideMenuLayout';
 
 /**
  * Base layout for the application. This will frame all the views.

@@ -1,3 +1,3 @@
-import ReduxDevMonitor from 'development/ReduxDevMonitor';
+import DevMonitor from 'development/DevMonitor';
 
-export { ReduxDevMonitor as DevMonitor };
+export { DevMonitor };
