@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import SideMenuLayoutRoute from 'routes/SideMenuLayoutRoute';
 
 import Index from 'layout/containers/Index';
 
@@ -12,5 +14,5 @@ import Index from 'layout/containers/Index';
  * - Component to show
  */
 export default <Switch>
-   <Route path='/' exact component={Index}/>
+   <SideMenuLayoutRoute path='/' exact component={Index}/>
 </Switch>;
