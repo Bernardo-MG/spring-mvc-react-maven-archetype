@@ -8,7 +8,7 @@ import { HashRouter as Router } from 'react-router-dom';
 
 import { IntlProvider } from 'react-intl';
 
-import DevTools from 'development/components/DevTools';
+import DevMonitor from 'development';
 
 /**
  * Development root application.
@@ -22,7 +22,7 @@ const Root = ({ store, language, i18nMessages }) => (
             <Router>
                {routes}
             </Router>
-            <DevTools />
+            <DevMonitor />
          </React.Fragment>
       </Provider>
    </IntlProvider>
