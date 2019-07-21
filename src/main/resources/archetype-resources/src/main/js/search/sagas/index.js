@@ -21,8 +21,8 @@ export function* search(action) {
 }
 
 export function* saveEntities(action) {
-   const normalized = normalize(action.payload.docs, [entity]);
-   yield put(addEntities(normalized.entities.books));
+   const normalized = normalize(action.payload.content, [entity]);
+   yield put(addEntities(normalized.entities.entities));
    yield put(setEntityIds(normalized.result));
 }
 

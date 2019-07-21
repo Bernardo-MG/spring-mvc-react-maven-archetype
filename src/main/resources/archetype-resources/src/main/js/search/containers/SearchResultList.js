@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import ResultList from 'common/components/ResultList';
 
-import { selectSearchedBooks as selectResult } from 'search/selectors';
+import { selectSearchedEntities as selectResult } from 'search/selectors';
 
 function SearchResultList({ result }) { return <ResultList source={result} />; }
 

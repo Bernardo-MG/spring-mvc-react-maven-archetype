@@ -6,7 +6,7 @@ const filterByKeys = (map, keys) => {
 
    keys.forEach((k) => {
       if (k in map) {
-         result.push(map[k].title);
+         result.push(map[k].name);
       }
    });
 
@@ -15,7 +15,7 @@ const filterByKeys = (map, keys) => {
 
 export const selectEntityIds = (state) => state.search.entityIds;
 
-export const selectSearchedBooks = createSelector(
+export const selectSearchedEntities = createSelector(
    selectEntities,
    selectEntityIds,
    (data, ids) => filterByKeys(data, ids)
