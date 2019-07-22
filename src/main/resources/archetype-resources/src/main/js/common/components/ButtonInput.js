@@ -24,9 +24,7 @@ class ButtonInput extends Component {
     */
    _handleClick = (event) => {
       if ((event) && (event.type === 'click')) {
-         if (this.state.query) {
-            this.props.action(this.state.query);
-         }
+         this.props.action(this.state.query);
       }
    };
 
@@ -37,9 +35,7 @@ class ButtonInput extends Component {
     */
    _handleKeyPress = (event) => {
       if ((event) && (event.key === 'Enter')) {
-         if (this.state.query) {
-            this.props.action(this.state.query);
-         }
+         this.props.action(this.state.query);
       }
    };
 

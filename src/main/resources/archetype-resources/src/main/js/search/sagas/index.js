@@ -7,16 +7,12 @@ import { normalize } from 'normalizr';
 import { entity } from 'entities/schema';
 
 export function* search(action) {
-   if (action.payload) {
-      let response;
-      try {
-         response = yield call(api.Entities.byTitle, action.payload);
-         yield put(success(response));
-      } catch (err) {
-         yield put(failure(err));
-      }
-   } else {
-      console.error('Missing payload');
+   let response;
+   try {
+      response = yield call(api.Entities.byTitle, action.payload);
+      yield put(success(response));
+   } catch (err) {
+      yield put(failure(err));
    }
 }
 
