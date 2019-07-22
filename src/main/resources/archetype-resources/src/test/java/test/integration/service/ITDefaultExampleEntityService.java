@@ -36,6 +36,9 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import com.google.common.collect.Iterables;
+
 import org.junit.jupiter.api.Test;
 
 import org.junit.Assert;
@@ -122,6 +125,17 @@ public final class ITDefaultExampleEntityService {
         entity = service.findById(100);
 
         Assert.assertEquals(entity.getId(), new Integer(-1));
+    }
+    /**
+     * Verifies that searching by an incomplete name returns all the matching entities.
+     */
+    @Test
+    public final void testFindByNameQuery_QueryPattern_ReturnsMatching() {
+        final Iterable<? extends ExampleEntity> entities; // Found entities
+
+        entities = service.findByNameQuery("entity_0", null);
+
+        Assert.assertEquals(9, Iterables.size(entities));
     }
 
 }

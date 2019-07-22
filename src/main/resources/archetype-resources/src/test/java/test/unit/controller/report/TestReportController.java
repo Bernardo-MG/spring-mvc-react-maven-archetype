@@ -34,6 +34,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -114,12 +115,12 @@ public final class TestReportController {
     private final ReportController getController() {
         final ExampleEntityService service; // Mocked unit codex
         final ExampleEntityReportService reportService; // Mocked unit codex
-        final Iterable<DefaultExampleEntity> entities;
+        final Iterable<? extends ExampleEntity> entities;
 
-        entities = new ArrayList<DefaultExampleEntity>();
+        entities = new ArrayList<>();
 
         service = Mockito.mock(ExampleEntityService.class);
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
+        Mockito.when(service.getAllEntities()).thenReturn((Iterable) entities);
 
         reportService = new DefaultExampleEntityReportService();
 

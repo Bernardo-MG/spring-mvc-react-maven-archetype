@@ -99,9 +99,9 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity> getEntities(final String query,
-            final Pageable page) {
-        return entityRepository.findAll(page);
+    public final Iterable<DefaultExampleEntity>
+            findByNameQuery(final String query, final Pageable page) {
+        return entityRepository.findByNameContaining(query, page);
     }
 
     @Override

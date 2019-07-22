@@ -24,6 +24,8 @@
 
 package ${package}.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import ${package}.model.persistence.DefaultExampleEntity;
@@ -38,5 +40,16 @@ import ${package}.model.persistence.DefaultExampleEntity;
  */
 public interface ExampleEntityRepository
         extends JpaRepository<DefaultExampleEntity, Integer> {
+    /**
+     * Returns all entities with a partial match to the name.
+     * 
+     * @param name
+     *            name for searching
+     * @param page
+     *            pagination to apply
+     * @return all entities at least partially matching the name
+     */
+    public Page<DefaultExampleEntity> findByNameContaining(final String name,
+            final Pageable page);
 
 }
