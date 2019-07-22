@@ -99,8 +99,8 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity>
-            getEntities(final Pageable page) {
+    public final Iterable<DefaultExampleEntity> getEntities(final String query,
+            final Pageable page) {
         return getExampleEntityRepository().findAll(page);
     }
 

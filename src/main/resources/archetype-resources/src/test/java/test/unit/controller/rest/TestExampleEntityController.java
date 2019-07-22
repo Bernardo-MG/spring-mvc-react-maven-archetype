@@ -35,16 +35,17 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.bernardomg.example.controller.entity.ExampleEntityController;
+import com.bernardomg.example.model.ExampleEntity;
+import com.bernardomg.example.service.ExampleEntityService;
+
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * TeamPlayer tests for {@link ExampleEntityController}, validating the
- * results of REST requests.
- * <p>
- * The tested controller gives support only for GET requests.
+ * Verifies that {@link ExampleEntityController} handles HTTP requests.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -111,8 +112,8 @@ public final class TestExampleEntityController {
         entities.add(Mockito.mock(ExampleEntity.class));
         entities.add(Mockito.mock(ExampleEntity.class));
 
-        Mockito.when(service.getEntities(ArgumentMatchers.any()))
-                .thenReturn((Iterable) entities);
+        Mockito.when(service.getEntities(ArgumentMatchers.any(),
+                ArgumentMatchers.any())).thenReturn((Iterable) entities);
 
         return new ExampleEntityController(service);
     }

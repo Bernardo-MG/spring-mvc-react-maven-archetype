@@ -25,9 +25,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -36,28 +34,23 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.bernardomg.example.controller.entity.ExampleEntityController;
-import com.bernardomg.example.model.ExampleEntity;
-import com.bernardomg.example.service.ExampleEntityService;
-
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Verifies that {@link ExampleEntityController} handles requests with
- * pagination.
+ * Verifies that {@link ExampleEntityController} handles queries.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RunWith(JUnitPlatform.class)
-public final class TestExampleEntityControllerPagination {
+public final class TestExampleEntityControllerQuery {
 
     /**
-     * Argument captor for pagination data.
+     * Argument captor for query data.
      */
-    private ArgumentCaptor<Pageable>   captor;
+    private ArgumentCaptor<String>     captor;
 
     /**
      * Mocked MVC context.
@@ -72,7 +65,7 @@ public final class TestExampleEntityControllerPagination {
     /**
      * Default constructor;
      */
-    public TestExampleEntityControllerPagination() {
+    public TestExampleEntityControllerQuery() {
         super();
 
         service = getExampleEntityService();
@@ -94,34 +87,31 @@ public final class TestExampleEntityControllerPagination {
     }
 
     /**
-     * Verifies that the page received as parameter is used for pagination.
+     * Verifies that the query parameter is used for querying.
      */
     @Test
-    public final void testGet_Page_SetInPagination() throws Exception {
-        final Pageable pageable;
+    public final void testGet_Query_SetsQuery() throws Exception {
+        final String query;
 
-        mockMvc.perform(getGetRequestWithPage());
+        mockMvc.perform(getGetRequestWithQuery());
 
-        pageable = captor.getValue();
+        query = captor.getValue();
 
-        Assert.assertEquals(10, pageable.getPageNumber());
+        Assert.assertEquals("abc", query);
     }
 
     /**
-     * Verifies that default pagination values are used when no pagination
-     * parameters are received.
+     * Verifies that an empty string is used when there is no query.
      */
     @Test
-    public final void testGet_WithoutPagination_DefaultValues()
-            throws Exception {
-        final Pageable pageable;
+    public final void testGet_NoQuery_Empty() throws Exception {
+        final String query;
 
         mockMvc.perform(getGetRequest());
 
-        pageable = captor.getValue();
+        query = captor.getValue();
 
-        Assert.assertEquals(20, pageable.getPageSize());
-        Assert.assertEquals(0, pageable.getPageNumber());
+        Assert.assertEquals("", query);
     }
 
     /**
@@ -143,10 +133,9 @@ public final class TestExampleEntityControllerPagination {
         entities.add(Mockito.mock(ExampleEntity.class));
         entities.add(Mockito.mock(ExampleEntity.class));
 
-        captor = ArgumentCaptor.forClass(Pageable.class);
+        captor = ArgumentCaptor.forClass(String.class);
 
-        Mockito.when(
-                service.getEntities(ArgumentMatchers.any(), captor.capture()))
+        Mockito.when(service.getEntities(captor.capture(), Mockito.any()))
                 .thenReturn((Iterable) entities);
 
         return service;
@@ -167,8 +156,8 @@ public final class TestExampleEntityControllerPagination {
      * 
      * @return a request builder prepared for reading entities
      */
-    private final RequestBuilder getGetRequestWithPage() {
-        return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?page=10")
+    private final RequestBuilder getGetRequestWithQuery() {
+        return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?query=abc")
                 .contentType(MediaType.APPLICATION_JSON_UTF8);
     }
 

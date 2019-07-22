@@ -70,11 +70,14 @@ public interface ExampleEntityService {
     /**
      * Returns a paginated collection of entities.
      * 
+     * @param name
+     *            entity name for querying
      * @param page
      *            pagination data
      * @return a paginated collection of entities
      */
-    public Iterable<DefaultExampleEntity> getEntities(final Pageable page);
+    public Iterable<DefaultExampleEntity> getEntities(final String name,
+            final Pageable page);
 
     /**
      * Removes an entity from persistence.

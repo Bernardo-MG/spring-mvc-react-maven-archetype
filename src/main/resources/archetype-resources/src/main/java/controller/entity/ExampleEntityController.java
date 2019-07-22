@@ -33,7 +33,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.bernardomg.example.model.ExampleEntity;
 
 import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.DefaultExampleEntity;
@@ -92,14 +95,18 @@ public class ExampleEntityController {
     /**
      * Returns a paginated collection of entities.
      * 
+     * @param query
+     *            optional query argument
      * @param page
      *            pagination data
      * @return a paginated collection of entities
      */
     @GetMapping
-    public final Iterable<? extends ExampleEntity>
-            readEntities(final Pageable page) {
-        return getExampleEntityService().getEntities(page);
+    public final Iterable<? extends ExampleEntity> readEntities(
+            @RequestParam(value = "query", required = false,
+                    defaultValue = "") final String query,
+            final Pageable page) {
+        return getExampleEntityService().getEntities(query, page);
     }
 
     /**

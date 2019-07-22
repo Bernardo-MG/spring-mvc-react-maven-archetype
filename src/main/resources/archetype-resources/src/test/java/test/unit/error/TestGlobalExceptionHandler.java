@@ -36,13 +36,18 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import com.bernardomg.example.controller.entity.ExampleEntityController;
+import com.bernardomg.example.controller.error.GlobalExceptionHandler;
+import com.bernardomg.example.service.ExampleEntityService;
+
 import ${package}.controller.error.GlobalExceptionHandler;
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
+ * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and
+ * handles errors.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -97,7 +102,7 @@ public final class TestGlobalExceptionHandler {
 
         service = Mockito.mock(ExampleEntityService.class);
 
-        Mockito.when(service.getEntities(Mockito.any()))
+        Mockito.when(service.getEntities(Mockito.any(), Mockito.any()))
                 .thenThrow(RuntimeException.class);
 
         return new ExampleEntityController(service);
