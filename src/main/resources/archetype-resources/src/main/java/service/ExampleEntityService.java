@@ -61,14 +61,8 @@ public interface ExampleEntityService {
     public ExampleEntity findById(final Integer identifier);
 
     /**
-     * Returns all the entities from the DB.
-     * 
-     * @return the persisted entities
-     */
-    public Iterable<DefaultExampleEntity> getAllEntities();
-
-    /**
-     * Returns a paginated collection of entities.
+     * Returns a paginated collection of all the entities with a name partially
+     * matching the one received.
      * 
      * @param name
      *            entity name for querying
@@ -76,8 +70,15 @@ public interface ExampleEntityService {
      *            pagination data
      * @return a paginated collection of entities
      */
-    public Iterable<DefaultExampleEntity> getEntities(final String name,
+    public Iterable<? extends ExampleEntity> findByNameQuery(final String name,
             final Pageable page);
+
+    /**
+     * Returns all the entities from the DB.
+     * 
+     * @return the persisted entities
+     */
+    public Iterable<? extends ExampleEntity> getAllEntities();
 
     /**
      * Removes an entity from persistence.

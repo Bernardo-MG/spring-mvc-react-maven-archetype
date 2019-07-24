@@ -40,7 +40,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 
-import ${package}.model.persistence.ExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Default implementation of the report service.

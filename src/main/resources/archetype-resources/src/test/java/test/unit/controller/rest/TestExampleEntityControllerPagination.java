@@ -44,10 +44,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.bernardomg.example.controller.entity.ExampleEntityController;
-import com.bernardomg.example.model.ExampleEntity;
-import com.bernardomg.example.service.ExampleEntityService;
-
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -154,7 +150,7 @@ public final class TestExampleEntityControllerPagination {
         captor = ArgumentCaptor.forClass(Pageable.class);
 
         Mockito.when(
-                service.getEntities(ArgumentMatchers.any(), captor.capture()))
+                service.findByNameQuery(ArgumentMatchers.any(), captor.capture()))
                 .thenReturn((Iterable) entities);
 
         return service;

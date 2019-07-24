@@ -43,10 +43,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.bernardomg.example.controller.entity.ExampleEntityController;
-import com.bernardomg.example.model.ExampleEntity;
-import com.bernardomg.example.service.ExampleEntityService;
-
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -120,7 +116,7 @@ public final class TestExampleEntityController {
         entities.add(Mockito.mock(ExampleEntity.class));
         entities.add(Mockito.mock(ExampleEntity.class));
 
-        Mockito.when(service.getEntities(ArgumentMatchers.any(),
+        Mockito.when(service.findByNameQuery(ArgumentMatchers.any(),
                 ArgumentMatchers.any())).thenReturn((Iterable) entities);
 
         return new ExampleEntityController(service);

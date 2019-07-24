@@ -26,7 +26,7 @@ package ${package}.service;
 
 import net.sf.jasperreports.engine.JasperPrint;
 
-import ${package}.model.persistence.ExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Service for generating reports for the example entities.

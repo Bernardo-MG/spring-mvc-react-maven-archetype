@@ -42,7 +42,7 @@ import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
 import ${package}.controller.report.ReportController;
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
 import ${package}.service.DefaultExampleEntityReportService;
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
@@ -81,7 +81,8 @@ public final class TestReportController {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_PDF)).build();
+                        .contentType(MediaType.APPLICATION_PDF))
+                .build();
     }
 
     /**
@@ -102,7 +103,8 @@ public final class TestReportController {
 
         result = mockMvc.perform(getRequest());
 
-        content = result.andReturn().getResponse().getHeader("Content-disposition");
+        content = result.andReturn().getResponse()
+                .getHeader("Content-disposition");
 
         Assert.assertEquals("inline; filename=EntityReport.pdf", content);
     }

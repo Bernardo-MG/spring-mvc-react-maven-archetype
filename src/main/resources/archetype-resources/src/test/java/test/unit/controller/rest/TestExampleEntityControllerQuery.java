@@ -143,7 +143,7 @@ public final class TestExampleEntityControllerQuery {
 
         captor = ArgumentCaptor.forClass(String.class);
 
-        Mockito.when(service.getEntities(captor.capture(), Mockito.any()))
+        Mockito.when(service.findByNameQuery(captor.capture(), Mockito.any()))
                 .thenReturn((Iterable) entities);
 
         return service;

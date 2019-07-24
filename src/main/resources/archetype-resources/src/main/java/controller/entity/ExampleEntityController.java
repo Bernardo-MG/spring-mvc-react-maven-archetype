@@ -36,8 +36,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bernardomg.example.model.ExampleEntity;
-
 import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -78,7 +76,7 @@ public class ExampleEntityController {
      */
     @PostMapping
     public final void createEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.add(entity);
+        getExampleEntityService().add(entity);
     }
 
     /**
@@ -89,7 +87,7 @@ public class ExampleEntityController {
      */
     @DeleteMapping
     public final void deleteEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.remove(entity);
+        getExampleEntityService().remove(entity);
     }
 
     /**
@@ -106,7 +104,7 @@ public class ExampleEntityController {
             @RequestParam(value = "query", required = false,
                     defaultValue = "") final String query,
             final Pageable page) {
-        return exampleEntityService.getEntities(query, page);
+        return getExampleEntityService().findByNameQuery(query, page);
     }
 
     /**
@@ -117,7 +115,16 @@ public class ExampleEntityController {
      */
     @PutMapping
     public final void updateEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.add(entity);
+        getExampleEntityService().add(entity);
+    }
+
+    /**
+     * Returns the example entity service.
+     * 
+     * @return the example entity service
+     */
+    private final ExampleEntityService getExampleEntityService() {
+        return exampleEntityService;
     }
 
 }
