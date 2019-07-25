@@ -75,7 +75,7 @@ public class ExampleEntityController {
      *            entity to create
      */
     @PostMapping
-    public final void createEntity(final DefaultExampleEntity entity) {
+    public void createEntity(final DefaultExampleEntity entity) {
         exampleEntityService.add(entity);
     }
 
@@ -86,7 +86,7 @@ public class ExampleEntityController {
      *            entity to delete
      */
     @DeleteMapping
-    public final void deleteEntity(final DefaultExampleEntity entity) {
+    public void deleteEntity(final DefaultExampleEntity entity) {
         exampleEntityService.remove(entity);
     }
 
@@ -100,7 +100,7 @@ public class ExampleEntityController {
      * @return a paginated collection of entities
      */
     @GetMapping
-    public final Iterable<? extends ExampleEntity> readEntities(
+    public Iterable<? extends ExampleEntity> readEntities(
             @RequestParam(value = "query", required = false,
                     defaultValue = "") final String query,
             final Pageable page) {
@@ -114,7 +114,7 @@ public class ExampleEntityController {
      *            entity to update
      */
     @PutMapping
-    public final void updateEntity(final DefaultExampleEntity entity) {
+    public void updateEntity(final DefaultExampleEntity entity) {
         exampleEntityService.add(entity);
     }
 
