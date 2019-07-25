@@ -9,6 +9,11 @@ const sideLinks = [
       text: 'Data',
       link: '/entities',
       id: 'data'
+   },
+   {
+      text: 'Form',
+      link: '/form',
+      id: 'form'
    }
 ];
 

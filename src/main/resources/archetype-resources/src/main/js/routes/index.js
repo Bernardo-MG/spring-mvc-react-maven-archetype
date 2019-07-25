@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 
 import SideMenuLayoutRoute from 'routes/SideMenuLayoutRoute';
 
-import { Index, DataView } from 'views';
+import { Index, DataForm, DataView } from 'views';
 
 /**
  * All the routes for the application.
@@ -16,4 +16,5 @@ import { Index, DataView } from 'views';
 export default <Switch>
    <SideMenuLayoutRoute path='/' exact component={Index}/>
    <SideMenuLayoutRoute path='/entities' exact component={DataView}/>
+   <SideMenuLayoutRoute path='/form' exact component={DataForm}/>
 </Switch>;
