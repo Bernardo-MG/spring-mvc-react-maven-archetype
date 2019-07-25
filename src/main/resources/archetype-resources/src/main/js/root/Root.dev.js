@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Provider } from 'react-redux';
 import routes from 'routes';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { IntlProvider } from 'react-intl';
 
