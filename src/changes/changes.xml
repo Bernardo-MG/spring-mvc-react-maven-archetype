@@ -10,5 +10,13 @@
             First release of the archetype.
          </action>
       </release>
+      <release version="1.1.0" date="2018-09-04" description="Changed UI">
+         <action dev="bmg" type="update">
+            Changed to material-ui for the UI.
+         </action>
+         <action dev="bmg" type="update">
+            Reworked the frontend.
+         </action>
+      </release>
    </body>
 </document>
