@@ -7,7 +7,7 @@ const requests = {
 };
 
 const Entities = {
-   byTitle: () => requests.get('/rest/entity')
+   byTitle: (query) => requests.get(`/rest/entity?query=${query}`)
 };
 
 export default {

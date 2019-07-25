@@ -76,7 +76,7 @@ public class ExampleEntityController {
      */
     @PostMapping
     public final void createEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().add(entity);
+        exampleEntityService.add(entity);
     }
 
     /**
@@ -87,7 +87,7 @@ public class ExampleEntityController {
      */
     @DeleteMapping
     public final void deleteEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().remove(entity);
+        exampleEntityService.remove(entity);
     }
 
     /**
@@ -104,7 +104,7 @@ public class ExampleEntityController {
             @RequestParam(value = "query", required = false,
                     defaultValue = "") final String query,
             final Pageable page) {
-        return getExampleEntityService().findByNameQuery(query, page);
+        return exampleEntityService.findByNameQuery(query, page);
     }
 
     /**
@@ -115,16 +115,7 @@ public class ExampleEntityController {
      */
     @PutMapping
     public final void updateEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().add(entity);
-    }
-
-    /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
+        exampleEntityService.add(entity);
     }
 
 }
