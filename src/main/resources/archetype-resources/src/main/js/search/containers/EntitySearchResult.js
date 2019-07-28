@@ -8,9 +8,9 @@ import ResultList from 'common/components/ResultList';
 
 import { selectSearchedEntities as selectResult } from 'search/selectors';
 
-function SearchResultList({ result }) { return <ResultList source={result} />; }
+function EntitySearchResult({ result }) { return <ResultList source={result} />; }
 
-SearchResultList.propTypes = {
+EntitySearchResult.propTypes = {
    result: PropTypes.array.isRequired
 };
 
@@ -27,4 +27,4 @@ const mapDispatchToProps = () => {
 export default connect(
    mapStateToProps,
    mapDispatchToProps
-)(SearchResultList);
+)(EntitySearchResult);

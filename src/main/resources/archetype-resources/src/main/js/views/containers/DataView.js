@@ -9,7 +9,7 @@ import { injectIntl, intlShape } from 'react-intl';
 import { selectSearchingEntities } from 'search/selectors';
 
 import EntitySearchForm from 'search/containers/EntitySearchForm';
-import SearchResultList from 'search/containers/SearchResultList';
+import EntitySearchResult from 'search/containers/EntitySearchResult';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
@@ -21,7 +21,7 @@ function DataView({ intl, loading }) {
    if (loading) {
       view = <Grid container justify='center' alignItems='center' style={ { height: '70vh', overflow: 'auto' } }> <CircularProgress /> </Grid>;
    } else {
-      view = <Grid style={ { height: '80vh', overflow: 'auto' } }> <SearchResultList /> </Grid>;
+      view = <Grid style={ { height: '80vh', overflow: 'auto' } }> <EntitySearchResult /> </Grid>;
    }
 
    return (
