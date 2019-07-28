@@ -27,3 +27,24 @@ export const setIds = (payload) => {
       payload
    };
 };
+
+export const setCurrentPage = (payload) => {
+   return {
+      type: types.SET_ENTITY_CURRENT_PAGE,
+      payload
+   };
+};
+
+export const setTotalElements = (payload) => {
+   return {
+      type: types.SET_ENTITY_TOTAL_ELEMENTS,
+      payload
+   };
+};
+
+export const setTotalPages = (payload) => {
+   return {
+      type: types.SET_ENTITY_TOTAL_PAGES,
+      payload
+   };
+};

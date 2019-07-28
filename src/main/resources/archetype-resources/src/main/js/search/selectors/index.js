@@ -13,7 +13,7 @@ const filterByKeys = (map, keys) => {
    return result;
 };
 
-export const selectEntityIds = (state) => state.search.entityIds;
+export const selectEntityIds = (state) => state.search.entities.ids;
 
 export const selectSearchedEntities = createSelector(
    selectEntities,
@@ -21,4 +21,4 @@ export const selectSearchedEntities = createSelector(
    (data, ids) => filterByKeys(data, ids)
 );
 
-export const selectSearchingEntities = (state) => state.search.searchingEntities;
+export const selectSearchingEntities = (state) => state.search.searching;
