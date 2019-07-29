@@ -1,6 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { SEARCH_ENTITY, SEARCH_ENTITY_SUCCESS } from 'search/actions/types';
-import { success, failure, setIds as setEntityIds, setCurrentPage, setTotalPages, setTotalElements } from 'search/actions/entities';
+import { success, failure, setIds as setEntityIds, setCurrentPage, setTotalPages, setTotalElements, setPerPage } from 'search/actions/entities';
 import api from 'api';
 import { addEntities } from 'entities/actions';
 import { normalize } from 'normalizr';
@@ -26,6 +26,7 @@ export function* setEntityPagination(action) {
    yield put(setCurrentPage(action.payload.number));
    yield put(setTotalPages(action.payload.totalPages));
    yield put(setTotalElements(action.payload.totalElements));
+   yield put(setPerPage(action.payload.size));
 }
 
 export const searchSagas = [

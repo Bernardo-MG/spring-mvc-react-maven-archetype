@@ -1,6 +1,6 @@
 import * as types from 'search/actions/types';
 
-const search = (state = { ids: [], searching: false, currentPage: 0, totalPages: 0, totalElements: 0 }, action) => {
+const search = (state = { ids: [], searching: false, currentPage: 0, totalPages: 0, totalElements: 0, perPage: 0, pageSize: 10, pageSizeOptions: [5, 10, 25] }, action) => {
    switch (action.type) {
    case types.SEARCH_ENTITY:
       return {
@@ -18,6 +18,11 @@ const search = (state = { ids: [], searching: false, currentPage: 0, totalPages:
          ...state,
          ids: action.payload
       };
+   case types.SET_ENTITY_PAGE_SIZE:
+      return {
+         ...state,
+         pageSize: action.payload
+      };
    case types.SET_ENTITY_CURRENT_PAGE:
       return {
          ...state,
@@ -32,6 +37,11 @@ const search = (state = { ids: [], searching: false, currentPage: 0, totalPages:
       return {
          ...state,
          totalPages: action.payload
+      };
+   case types.SET_ENTITY_PER_PAGE:
+      return {
+         ...state,
+         perPage: action.payload
       };
    default:
       return state;

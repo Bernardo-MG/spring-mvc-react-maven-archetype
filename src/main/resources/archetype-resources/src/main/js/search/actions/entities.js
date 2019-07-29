@@ -28,6 +28,13 @@ export const setIds = (payload) => {
    };
 };
 
+export const setPageSize = (payload) => {
+   return {
+      type: types.SET_ENTITY_PAGE_SIZE,
+      payload
+   };
+};
+
 export const setCurrentPage = (payload) => {
    return {
       type: types.SET_ENTITY_CURRENT_PAGE,
@@ -45,6 +52,13 @@ export const setTotalElements = (payload) => {
 export const setTotalPages = (payload) => {
    return {
       type: types.SET_ENTITY_TOTAL_PAGES,
+      payload
+   };
+};
+
+export const setPerPage = (payload) => {
+   return {
+      type: types.SET_ENTITY_PER_PAGE,
       payload
    };
 };
