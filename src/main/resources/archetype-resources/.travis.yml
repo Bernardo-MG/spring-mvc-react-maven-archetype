@@ -8,7 +8,7 @@ services:
   - postgresql
 jdk:
 # JDK 8 is set to deploy the docs and artifacts
-  - oraclejdk8
+  - openjdk8
 env:
   # Doc deployment
   - SERVER=jetty DATABASE=h2 ENV=development DEPLOY_DOCS=true
@@ -20,7 +20,6 @@ env:
   - SERVER=jetty DATABASE=postgres ENV=development
   # Tomcat
   - SERVER=tomcat7 DATABASE=h2 ENV=development
-dist: precise
 
 before_install:
   # Gets scripts
