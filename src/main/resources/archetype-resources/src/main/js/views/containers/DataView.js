@@ -9,7 +9,7 @@ import { injectIntl, intlShape } from 'react-intl';
 
 import { selectSearchingEntities } from 'search/selectors';
 
-import { search as searchEntity } from 'search/actions/entities';
+import { search as searchEntity, setCurrentPage } from 'search/actions/entities';
 
 import ButtonInput from 'common/components/ButtonInput';
 import EntitySearchResult from 'search/containers/EntitySearchResult';
@@ -18,20 +18,25 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-function DataView({ intl, loading, search }) {
+function DataView({ intl, loading, search, changePage }) {
 
    const [query, setQuery] = React.useState('');
 
    let view = null;
 
-   function handleSearch() {
+   function handleChangeQuery() {
+      changePage(0);
+      search(query);
+   }
+
+   function handleMovePage() {
       search(query);
    }
 
    if (loading) {
       view = <Grid container justify='center' alignItems='center' style={ { height: '70vh', overflow: 'auto' } }> <CircularProgress /> </Grid>;
    } else {
-      view = <Grid style={ { height: '80vh', overflow: 'auto' } }> <EntitySearchResult search={handleSearch} /> </Grid>;
+      view = <Grid style={ { height: '80vh', overflow: 'auto' } }> <EntitySearchResult search={handleMovePage} /> </Grid>;
    }
 
    return (
@@ -43,7 +48,7 @@ function DataView({ intl, loading, search }) {
                   id='title'
                   label={ intl.formatMessage({ id: 'form.title' }) }
                   buttonLabel={ intl.formatMessage({ id: 'form.search' }) }
-                  onSelect={handleSearch}
+                  onSelect={handleChangeQuery}
                   onChange={setQuery}
                />
             </Grid>
@@ -57,7 +62,8 @@ function DataView({ intl, loading, search }) {
 DataView.propTypes = {
    loading: PropTypes.bool.isRequired,
    intl: intlShape.isRequired,
-   search: PropTypes.func.isRequired
+   search: PropTypes.func.isRequired,
+   changePage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -68,7 +74,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      search: bindActionCreators(searchEntity, dispatch)
+      search: bindActionCreators(searchEntity, dispatch),
+      changePage: bindActionCreators(setCurrentPage, dispatch)
    };
 };
 
