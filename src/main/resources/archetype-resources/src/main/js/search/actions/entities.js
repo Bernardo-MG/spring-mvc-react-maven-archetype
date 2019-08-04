@@ -1,9 +1,9 @@
 import * as types from 'search/actions/types';
 
-export const search = (payload) => {
+export const search = (query) => {
    return {
       type: types.SEARCH_ENTITY,
-      payload
+      payload: query
    };
 };
 

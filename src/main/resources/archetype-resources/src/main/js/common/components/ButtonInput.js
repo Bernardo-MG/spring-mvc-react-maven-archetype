@@ -7,15 +7,13 @@ import TextField from '@material-ui/core/TextField';
 
 class ButtonInput extends Component {
 
-   state = { query: '' };
-
    /**
     * Handles the value change event.
     *
     * @param event value change event
     */
    _handleChange = (event) => {
-      this.setState({ query: event.target.value });
+      this.props.onChange(event.target.value);
    };
 
    /**
@@ -23,7 +21,7 @@ class ButtonInput extends Component {
     */
    _handleClick = (event) => {
       if ((event) && (event.type === 'click')) {
-         this.props.action(this.state.query);
+         this.props.onSelect();
       }
    };
 
@@ -34,7 +32,7 @@ class ButtonInput extends Component {
     */
    _handleKeyPress = (event) => {
       if ((event) && (event.key === 'Enter')) {
-         this.props.action(this.state.query);
+         this.props.onSelect();
       }
    };
 
@@ -44,7 +42,7 @@ class ButtonInput extends Component {
             <TextField
                id={this.props.id}
                label={this.props.label}
-               value={this.state.query}
+               value={this.props.value}
                onChange={::this._handleChange}
                onKeyPress={::this._handleKeyPress}
             />
@@ -58,10 +56,12 @@ class ButtonInput extends Component {
 }
 
 ButtonInput.propTypes = {
+   value: PropTypes.string.isRequired,
    id: PropTypes.string.isRequired,
    label: PropTypes.string.isRequired,
    buttonLabel: PropTypes.string.isRequired,
-   action: PropTypes.func.isRequired
+   onSelect: PropTypes.func.isRequired,
+   onChange: PropTypes.func.isRequired
 };
 
 export default ButtonInput;

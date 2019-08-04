@@ -23,11 +23,13 @@ export const selectSearchedEntities = createSelector(
 
 export const selectSearchingEntities = (state) => state.search.searching;
 
+export const selectEntityPerPage = (state) => state.search.entities.perPage;
+
 export const selectEntityPage = (state) => state.search.entities.currentPage;
 
 export const selectEntityPageSize = (state) => state.search.entities.pageSize;
 
-export const selectEntityPageSizeOptions = (state) => state.search.entities.pageSizeOptions;
+export const selectEntityPerPageOptions = (state) => state.search.entities.pageSizeOptions;
 
 export const selectEntityTotalPages = (state) => state.search.entities.totalPages;
 

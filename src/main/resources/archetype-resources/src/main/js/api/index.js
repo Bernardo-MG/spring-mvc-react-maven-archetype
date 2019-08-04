@@ -9,7 +9,7 @@ const requests = {
 
 const Entities = {
    create: (name) => requests.put('/rest/entity', { name }),
-   byTitle: (query) => requests.get(`/rest/entity?query=${query}`)
+   byTitle: (query, page, perPage) => requests.get(`/rest/entity?query=${query}&&page=${page}&&size=${perPage}`)
 };
 
 export default {

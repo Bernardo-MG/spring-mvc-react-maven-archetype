@@ -9,11 +9,17 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
-function SearchResult({ source, count, page, pageSize, pageSizeOptions, changeRowsPerPage, changePage }) {
+function SearchResult({ source, count, page, perPage, perPageOptions, changeRowsPerPage, changePage, search }) {
 
    function handleChangeRowsPerPage(event) {
       changeRowsPerPage(parseInt(event.target.value, 10));
       changePage(0);
+      search();
+   }
+
+   function handleChangePage(event, newPage) {
+      changePage(newPage);
+      search();
    }
 
    const rows = source.map((row) => (
@@ -31,12 +37,13 @@ function SearchResult({ source, count, page, pageSize, pageSizeOptions, changeRo
       <TableFooter>
          <TableRow>
             <TablePagination
-               numPerPageOptions={pageSizeOptions}
+               numPerPageOptions={perPageOptions}
                colSpan={3}
                count={count}
-               rowsPerPage={pageSize}
+               rowsPerPage={perPage}
                page={page}
                onChangeRowsPerPage={handleChangeRowsPerPage}
+               onChangePage={handleChangePage}
                SelectProps={{
                   inputProps: { 'aria-label': 'rows per page' },
                   native: true
@@ -51,10 +58,11 @@ SearchResult.propTypes = {
    source: PropTypes.array.isRequired,
    count: PropTypes.number.isRequired,
    page: PropTypes.number.isRequired,
-   pageSize: PropTypes.number.isRequired,
-   pageSizeOptions: PropTypes.number.isRequired,
+   perPage: PropTypes.number.isRequired,
+   perPageOptions: PropTypes.number.isRequired,
    changeRowsPerPage: PropTypes.func.isRequired,
-   changePage: PropTypes.func.isRequired
+   changePage: PropTypes.func.isRequired,
+   search: PropTypes.func.isRequired
 };
 
 export default SearchResult;
