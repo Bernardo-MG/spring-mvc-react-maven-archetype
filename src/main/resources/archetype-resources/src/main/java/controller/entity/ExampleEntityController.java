@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.PersistentExampleEntity;
+import ${package}.model.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -75,7 +75,7 @@ public class ExampleEntityController {
      *            entity to create
      */
     @PostMapping
-    public void createEntity(final PersistentExampleEntity entity) {
+    public void createEntity(final DefaultExampleEntity entity) {
         exampleEntityService.add(entity);
     }
 
@@ -86,7 +86,7 @@ public class ExampleEntityController {
      *            entity to delete
      */
     @DeleteMapping
-    public void deleteEntity(final PersistentExampleEntity entity) {
+    public void deleteEntity(final DefaultExampleEntity entity) {
         exampleEntityService.remove(entity);
     }
 
@@ -114,7 +114,7 @@ public class ExampleEntityController {
      *            entity to update
      */
     @PutMapping
-    public void updateEntity(final PersistentExampleEntity entity) {
+    public void updateEntity(final DefaultExampleEntity entity) {
         exampleEntityService.add(entity);
     }
 

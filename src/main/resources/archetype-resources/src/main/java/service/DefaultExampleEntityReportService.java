@@ -49,13 +49,13 @@ import ${package}.model.ExampleEntity;
  *
  */
 @Service
-public final class PersistentExampleEntityReportService
+public final class DefaultExampleEntityReportService
         implements ExampleEntityReportService {
 
     /**
      * Default constructor.
      */
-    public PersistentExampleEntityReportService() {
+    public DefaultExampleEntityReportService() {
         super();
     }
 

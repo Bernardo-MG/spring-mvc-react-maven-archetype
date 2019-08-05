@@ -41,7 +41,7 @@ import ${package}.repository.ExampleEntityRepository;
  *
  */
 @Service
-public class PersistentExampleEntityService implements ExampleEntityService {
+public class DefaultExampleEntityService implements ExampleEntityService {
 
     /**
      * Repository for the domain entities handled by the service.
@@ -55,7 +55,7 @@ public class PersistentExampleEntityService implements ExampleEntityService {
      *            the repository for the entity instances
      */
     @Autowired
-    public PersistentExampleEntityService(
+    public DefaultExampleEntityService(
             final ExampleEntityRepository repository) {
         super();
 
@@ -64,7 +64,7 @@ public class PersistentExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final ExampleEntity add(final PersistentExampleEntity entity) {
+    public final ExampleEntity add(final ExampleEntity entity) {
         return entityRepository.save(entity);
     }
 
@@ -94,7 +94,7 @@ public class PersistentExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Iterable<PersistentExampleEntity>
+    public final IterabDefaultExampleEntityity>
             findByNameQuery(final String query, final Pageable page) {
         return entityRepository.findByNameContaining(query, page);
     }
