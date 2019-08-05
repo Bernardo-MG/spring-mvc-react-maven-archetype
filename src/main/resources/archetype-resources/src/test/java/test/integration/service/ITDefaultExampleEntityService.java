@@ -126,6 +126,7 @@ public class ITPersistentExampleEntityService {
 
         Assert.assertEquals(entity.getId(), new Integer(-1));
     }
+    
     /**
      * Verifies that searching by an incomplete name returns all the matching entities.
      */
