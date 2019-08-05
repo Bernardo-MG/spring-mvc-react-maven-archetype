@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -63,7 +63,7 @@ import ${package}.service.ExampleEntityService;
         "classpath:context/application-context.xml" })
 @TestPropertySource({ "classpath:config/persistence-access.properties",
         "classpath:config/service.properties" })
-public class ITDefaultExampleEntityService {
+public class ITPersistentExampleEntityService {
 
     /**
      * Service being tested.
@@ -74,7 +74,7 @@ public class ITDefaultExampleEntityService {
     /**
      * Default constructor.
      */
-    public ITDefaultExampleEntityService() {
+    public ITPersistentExampleEntityService() {
         super();
     }
 
@@ -83,19 +83,19 @@ public class ITDefaultExampleEntityService {
      */
     @Test
     public void testAdd_NotExisting_Added() {
-        final DefaultExampleEntity entity; // Entity to add
+        final PersistentExampleEntity entity; // Entity to add
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
 
-        entitiesCount = ((Collection<DefaultExampleEntity>) service
+        entitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();
 
-        entity = new DefaultExampleEntity();
+        entity = new PersistentExampleEntity();
         entity.setName("ABC");
 
         service.add(entity);
 
-        finalEntitiesCount = ((Collection<DefaultExampleEntity>) service
+        finalEntitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();
 
         Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));

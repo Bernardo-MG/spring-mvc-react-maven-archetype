@@ -30,7 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.model.ExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
@@ -41,7 +41,7 @@ import ${package}.repository.ExampleEntityRepository;
  *
  */
 @Service
-public class DefaultExampleEntityService implements ExampleEntityService {
+public class PersistentExampleEntityService implements ExampleEntityService {
 
     /**
      * Repository for the domain entities handled by the service.
@@ -55,7 +55,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
      *            the repository for the entity instances
      */
     @Autowired
-    public DefaultExampleEntityService(
+    public PersistentExampleEntityService(
             final ExampleEntityRepository repository) {
         super();
 
@@ -64,7 +64,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final ExampleEntity add(final DefaultExampleEntity entity) {
+    public final ExampleEntity add(final PersistentExampleEntity entity) {
         return entityRepository.save(entity);
     }
 
@@ -87,25 +87,25 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         if (entityRepository.existsById(identifier)) {
             entity = entityRepository.getOne(identifier);
         } else {
-            entity = new DefaultExampleEntity();
+            entity = new PersistentExampleEntity();
         }
 
         return entity;
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity>
+    public final Iterable<PersistentExampleEntity>
             findByNameQuery(final String query, final Pageable page) {
         return entityRepository.findByNameContaining(query, page);
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity> getAllEntities() {
+    public final Iterable<PersistentExampleEntity> getAllEntities() {
         return entityRepository.findAll();
     }
 
     @Override
-    public final void remove(final DefaultExampleEntity entity) {
+    public final void remove(final PersistentExampleEntity entity) {
         entityRepository.delete(entity);
     }
 

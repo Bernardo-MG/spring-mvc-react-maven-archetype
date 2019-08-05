@@ -49,7 +49,7 @@ import ${package}.model.ExampleEntity;
  */
 @Entity(name = "ExampleEntity")
 @Table(name = "example_entities")
-public class DefaultExampleEntity implements ExampleEntity {
+public class PersistentExampleEntity implements ExampleEntity {
 
     /**
      * Serialization ID.
@@ -77,7 +77,7 @@ public class DefaultExampleEntity implements ExampleEntity {
     /**
      * Constructs an example entity.
      */
-    public DefaultExampleEntity() {
+    public PersistentExampleEntity() {
         super();
     }
 
@@ -95,7 +95,7 @@ public class DefaultExampleEntity implements ExampleEntity {
             return false;
         }
 
-        final DefaultExampleEntity other = (DefaultExampleEntity) obj;
+        final PersistentExampleEntity other = (PersistentExampleEntity) obj;
         return Objects.equals(id, other.id);
     }
 
