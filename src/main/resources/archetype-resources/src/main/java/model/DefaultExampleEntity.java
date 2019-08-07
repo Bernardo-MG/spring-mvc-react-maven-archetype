@@ -24,14 +24,21 @@
 
 package ${package}.model;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.io.Serializable;
+import java.util.Objects;
+
+import com.google.common.base.MoreObjects;
 
 /**
  * Default implementation of the example entity.
+ * <p>
+ * TODO: Rename to EntityForm
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public class DefaultExampleEntity extends Serializable {
+public class DefaultExampleEntity implements Serializable {
 
     /**
      * Serialization ID.
