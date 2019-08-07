@@ -30,8 +30,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.PersistentExampleEntity;
+
+import ${package}.model.DefaultExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
 /**
@@ -64,8 +66,13 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final ExampleEntity add(final ExampleEntity entity) {
-        return entityRepository.save(entity);
+    public final ExampleEntity add(final String name) {
+        final PersistentExampleEntity save;
+
+        save = new PersistentExampleEntity();
+        save.setName(name);
+
+        return entityRepository.save(save);
     }
 
     /**
@@ -94,7 +101,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final IterabDefaultExampleEntityity>
+    public final Iterable<? extends ExampleEntity>
             findByNameQuery(final String query, final Pageable page) {
         return entityRepository.findByNameContaining(query, page);
     }
@@ -105,8 +112,24 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final void remove(final PersistentExampleEntity entity) {
-        entityRepository.delete(entity);
+    public final void remove(final Integer id) {
+        final PersistentExampleEntity delete;
+
+        delete = new PersistentExampleEntity();
+        delete.setId(id);
+
+        entityRepository.delete(delete);
+    }
+
+    @Override
+    public final ExampleEntity update(final DefaultExampleEntity entity) {
+        final PersistentExampleEntity save;
+
+        save = new PersistentExampleEntity();
+        save.setName(entity.getId());
+        save.setName(entity.getName());
+
+        return entityRepository.save(save);
     }
 
 }

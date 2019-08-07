@@ -76,7 +76,7 @@ public class ExampleEntityController {
      */
     @PostMapping
     public void createEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.add(entity);
+        exampleEntityService.add(entity.getName());
     }
 
     /**
@@ -87,7 +87,7 @@ public class ExampleEntityController {
      */
     @DeleteMapping
     public void deleteEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.remove(entity);
+        exampleEntityService.remove(entity.getId());
     }
 
     /**
@@ -115,7 +115,7 @@ public class ExampleEntityController {
      */
     @PutMapping
     public void updateEntity(final DefaultExampleEntity entity) {
-        exampleEntityService.add(entity);
+        exampleEntityService.update(entity);
     }
 
 }

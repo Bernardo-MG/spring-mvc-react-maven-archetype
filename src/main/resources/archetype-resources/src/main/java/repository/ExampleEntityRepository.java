@@ -40,6 +40,7 @@ import ${package}.model.persistence.PersistentExampleEntity;
  */
 public interface ExampleEntityRepository
         extends JpaRepository<PersistentExampleEntity, Integer> {
+
     /**
      * Returns all entities with a partial match to the name.
      * 

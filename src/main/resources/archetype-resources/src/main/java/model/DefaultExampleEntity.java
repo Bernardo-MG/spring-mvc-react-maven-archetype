@@ -72,7 +72,7 @@ public class DefaultExampleEntity extends Serializable {
             return false;
         }
 
-        final PersistentExampleEntity other = (PersistentExampleEntity) obj;
+        final DefaultExampleEntity other = (DefaultExampleEntity) obj;
         return Objects.equals(id, other.id);
     }
 
@@ -84,12 +84,10 @@ public class DefaultExampleEntity extends Serializable {
      *
      * @return the entity's identifier
      */
-    @Override
     public Integer getId() {
         return id;
     }
 
-    @Override
     public String getName() {
         return name;
     }
@@ -99,12 +97,10 @@ public class DefaultExampleEntity extends Serializable {
         return Objects.hash(id);
     }
 
-    @Override
     public void setId(final Integer value) {
         id = checkNotNull(value, "Received a null pointer as identifier");
     }
 
-    @Override
     public void setName(final String value) {
         name = checkNotNull(value, "Received a null pointer as name");
     }
