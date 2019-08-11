@@ -43,7 +43,7 @@ import org.junit.runner.RunWith;
 
 import ${package}.controller.report.ReportController;
 import ${package}.model.ExampleEntity;
-import ${package}.service.PersistentExampleEntityReportService;
+import ${package}.service.DefaultExampleEntityReportService;
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
 
@@ -124,7 +124,7 @@ public final class TestReportController {
         service = Mockito.mock(ExampleEntityService.class);
         Mockito.when(service.getAllEntities()).thenReturn((Iterable) entities);
 
-        reportService = new PersistentExampleEntityReportService();
+        reportService = new DefaultExampleEntityReportService();
 
         return new ReportController(service, reportService);
     }

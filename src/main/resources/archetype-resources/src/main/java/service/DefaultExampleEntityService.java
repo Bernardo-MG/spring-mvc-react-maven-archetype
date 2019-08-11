@@ -126,7 +126,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         final PersistentExampleEntity save;
 
         save = new PersistentExampleEntity();
-        save.setName(entity.getId());
+        save.setId(entity.getId());
         save.setName(entity.getName());
 
         return entityRepository.save(save);

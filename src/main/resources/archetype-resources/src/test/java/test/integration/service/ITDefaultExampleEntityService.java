@@ -37,6 +37,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import com.bernardomg.example.test.model.persistence.PersistentExampleEntity;
 import com.google.common.collect.Iterables;
 
 import org.junit.jupiter.api.Test;
@@ -63,7 +64,7 @@ import ${package}.service.ExampleEntityService;
         "classpath:context/application-context.xml" })
 @TestPropertySource({ "classpath:config/persistence-access.properties",
         "classpath:config/service.properties" })
-public class ITPersistentExampleEntityService {
+public class ITDefaultExampleEntityService {
 
     /**
      * Service being tested.
@@ -74,7 +75,7 @@ public class ITPersistentExampleEntityService {
     /**
      * Default constructor.
      */
-    public ITPersistentExampleEntityService() {
+    public ITDefaultExampleEntityService() {
         super();
     }
 
@@ -83,17 +84,13 @@ public class ITPersistentExampleEntityService {
      */
     @Test
     public void testAdd_NotExisting_Added() {
-        final PersistentExampleEntity entity; // Entity to add
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
 
         entitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();
 
-        entity = new PersistentExampleEntity();
-        entity.setName("ABC");
-
-        service.add(entity);
+        service.add("ABC");
 
         finalEntitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();

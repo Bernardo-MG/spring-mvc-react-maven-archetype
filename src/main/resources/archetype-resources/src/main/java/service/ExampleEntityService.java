@@ -27,7 +27,7 @@ package ${package}.service;
 import org.springframework.data.domain.Pageable;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.PersistentExampleEntity;
+import ${package}.model.DefaultExampleEntity;
 
 /**
  * Service for the example entity domain.
