@@ -52,7 +52,7 @@ import ${package}.service.ExampleEntityService;
  *
  */
 @Controller
-@RequestMapping("/entity")
+@RequestMapping("/rest/entity")
 public class ReportController {
 
     /**

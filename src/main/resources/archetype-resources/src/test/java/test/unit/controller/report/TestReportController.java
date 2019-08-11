@@ -59,7 +59,7 @@ public final class TestReportController {
     /**
      * PDF view URL.
      */
-    private static final String URL_PDF = "/entity/pdf";
+    private static final String URL_PDF = "/rest/entity/pdf";
 
     /**
      * Mocked MVC context.
