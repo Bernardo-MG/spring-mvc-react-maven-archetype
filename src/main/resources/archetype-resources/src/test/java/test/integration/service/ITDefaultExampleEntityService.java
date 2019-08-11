@@ -37,6 +37,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import com.bernardomg.example.test.model.ExampleEntity;
 import com.google.common.collect.Iterables;
 
 import org.junit.jupiter.api.Test;
@@ -98,6 +99,21 @@ public class ITDefaultExampleEntityService {
     }
 
     /**
+     * Verifies that the service adds entities into persistence.
+     */
+    @Test
+    public void testAdd_NotExisting_ReturnsCreated() {
+        final ExampleEntity entity;        // Created entity
+        final String name;                 // Created entity name
+
+        name = "newName";
+
+        entity = service.add(name);
+
+        Assert.assertEquals(name, entity.getName());
+    }
+
+    /**
      * Verifies that searching an existing entity by id returns the expected
      * entity.
      */
@@ -122,9 +138,10 @@ public class ITDefaultExampleEntityService {
 
         Assert.assertEquals(entity.getId(), new Integer(-1));
     }
-    
+
     /**
-     * Verifies that searching by an incomplete name returns all the matching entities.
+     * Verifies that searching by an incomplete name returns all the matching
+     * entities.
      */
     @Test
     public void testFindByNameQuery_QueryPattern_ReturnsMatching() {
