@@ -36,12 +36,15 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import com.google.common.collect.Iterables;
+
 import org.junit.jupiter.api.Test;
 
 import org.junit.Assert;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -60,7 +63,7 @@ import ${package}.service.ExampleEntityService;
         "classpath:context/application-context.xml" })
 @TestPropertySource({ "classpath:config/persistence-access.properties",
         "classpath:config/service.properties" })
-public final class ITDefaultExampleEntityService {
+public class ITDefaultExampleEntityService {
 
     /**
      * Service being tested.
@@ -79,23 +82,34 @@ public final class ITDefaultExampleEntityService {
      * Verifies that the service adds entities into persistence.
      */
     @Test
-    public final void testAdd_NotExisting_Added() {
-        final DefaultExampleEntity entity; // Entity to add
+    public void testAdd_NotExisting_Added() {
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
 
-        entitiesCount = ((Collection<DefaultExampleEntity>) service
+        entitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();
 
-        entity = new DefaultExampleEntity();
-        entity.setName("ABC");
+        service.add("ABC");
 
-        service.add(entity);
-
-        finalEntitiesCount = ((Collection<DefaultExampleEntity>) service
+        finalEntitiesCount = ((Collection<PersistentExampleEntity>) service
                 .getAllEntities()).size();
 
         Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
+    }
+
+    /**
+     * Verifies that the service adds entities into persistence.
+     */
+    @Test
+    public void testAdd_NotExisting_ReturnsCreated() {
+        final ExampleEntity entity;        // Created entity
+        final String name;                 // Created entity name
+
+        name = "newName";
+
+        entity = service.add(name);
+
+        Assert.assertEquals(name, entity.getName());
     }
 
     /**
@@ -103,7 +117,7 @@ public final class ITDefaultExampleEntityService {
      * entity.
      */
     @Test
-    public final void testFindById_Existing_Valid() {
+    public void testFindById_Existing_Valid() {
         final ExampleEntity entity; // Found entity
 
         entity = service.findById(1);
@@ -116,12 +130,25 @@ public final class ITDefaultExampleEntityService {
      * entity.
      */
     @Test
-    public final void testFindById_NotExisting_Invalid() {
+    public void testFindById_NotExisting_Invalid() {
         final ExampleEntity entity; // Found entity
 
         entity = service.findById(100);
 
         Assert.assertEquals(entity.getId(), new Integer(-1));
+    }
+
+    /**
+     * Verifies that searching by an incomplete name returns all the matching
+     * entities.
+     */
+    @Test
+    public void testFindByNameQuery_QueryPattern_ReturnsMatching() {
+        final Iterable<? extends ExampleEntity> entities; // Found entities
+
+        entities = service.findByNameQuery("entity_0", null);
+
+        Assert.assertEquals(9, Iterables.size(entities));
     }
 
 }

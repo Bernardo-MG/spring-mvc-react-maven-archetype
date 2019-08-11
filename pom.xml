@@ -15,7 +15,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>archetype-pom</artifactId>
-      <version>1.1.2</version>
+      <version>1.1.4</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -24,7 +24,7 @@
 
    <groupId>com.bernardomg.maven.archetypes</groupId>
    <artifactId>spring-mvc-react-archetype</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.0</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with React Maven Archetype</name>
@@ -162,10 +162,6 @@
       <!-- ============================================== -->
       <manifest.name>com/bernardomg/archetype/library</manifest.name>
       <!-- ============================================== -->
-      <!-- ============== PLUGINS VERSIONS ============== -->
-      <!-- ============================================== -->
-      <plugin.jshint.version>1.6.0</plugin.jshint.version>
-      <!-- ============================================== -->
       <!-- =========== PLUGINS CONFIGURATION ============ -->
       <!-- ============================================== -->
       <!-- Archetype test settings -->
@@ -173,7 +169,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>1.3.2</site.skin.version>
+      <site.skin.version>1.4.2</site.skin.version>
       <repoDownloadURL>https://dl.bintray.com/bernardo-mg/maven/</repoDownloadURL>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/spring-mvc-react-maven-archetype/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype</mavenURL>
@@ -185,42 +181,7 @@
 
    <build>
       <defaultGoal>clean package install</defaultGoal>
-      <pluginManagement>
-         <plugins>
-            <!-- Plugin versions and configurations are enforced here. -->
-            <plugin>
-               <!-- JSHint -->
-               <!-- Validates JS -->
-               <groupId>com.cj.jshintmojo</groupId>
-               <artifactId>jshint-maven-plugin</artifactId>
-               <version>${plugin.jshint.version}</version>
-            </plugin>
-         </plugins>
-      </pluginManagement>
       <plugins>
-         <plugin>
-            <!-- JSHint -->
-            <groupId>com.cj.jshintmojo</groupId>
-            <artifactId>jshint-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>jshint</id>
-                  <phase>test</phase>
-                  <goals>
-                     <goal>lint</goal>
-                  </goals>
-               </execution>
-            </executions>
-            <configuration>
-               <options>maxdepth:3,latedef,nonew,jquery</options>
-               <directories>
-                  <directory>src/main/resources/archetype-resources/src/main/webapp/resources/js</directory>
-               </directories>
-               <reporter>checkstyle</reporter>
-               <reportFile>target/jshint.xml</reportFile>
-               <failOnError>true</failOnError>
-            </configuration>
-         </plugin>
          <plugin>
             <!-- Site -->
             <!-- Generates the Maven Site -->

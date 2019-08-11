@@ -26,8 +26,8 @@ package ${package}.service;
 
 import org.springframework.data.domain.Pageable;
 
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.model.EntityForm;
 
 /**
  * Service for the example entity domain.
@@ -40,13 +40,13 @@ import ${package}.model.ExampleEntity;
 public interface ExampleEntityService {
 
     /**
-     * Persists an entity.
+     * Creates a new entity.
      * 
-     * @param entity
-     *            entity to persist
+     * @param name
+     *            name to persist
      * @return the persisted entity
      */
-    public ExampleEntity add(final DefaultExampleEntity entity);
+    public ExampleEntity add(final String name);
 
     /**
      * Returns an entity with the given id.
@@ -61,27 +61,40 @@ public interface ExampleEntityService {
     public ExampleEntity findById(final Integer identifier);
 
     /**
-     * Returns all the entities from the DB.
+     * Returns a paginated collection of all the entities with a name partially
+     * matching the one received.
      * 
-     * @return the persisted entities
-     */
-    public Iterable<DefaultExampleEntity> getAllEntities();
-
-    /**
-     * Returns a paginated collection of entities.
-     * 
+     * @param name
+     *            entity name for querying
      * @param page
      *            pagination data
      * @return a paginated collection of entities
      */
-    public Iterable<DefaultExampleEntity> getEntities(final Pageable page);
+    public Iterable<? extends ExampleEntity> findByNameQuery(final String name,
+            final Pageable page);
+
+    /**
+     * Returns all the entities from the DB.
+     * 
+     * @return the persisted entities
+     */
+    public Iterable<? extends ExampleEntity> getAllEntities();
 
     /**
      * Removes an entity from persistence.
      * 
-     * @param entity
-     *            entity to remove
+     * @param id
+     *            id of the entity to remove
      */
-    public void remove(final DefaultExampleEntity entity);
+    public void remove(final Integer id);
+
+    /**
+     * Updates an existing entity.
+     * 
+     * @param entity
+     *            entity to update
+     * @return the persisted entity
+     */
+    public ExampleEntity update(final EntityForm entity);
 
 }

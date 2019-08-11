@@ -8,7 +8,7 @@ services:
   - postgresql
 jdk:
 # JDK 8 is set to deploy the docs and artifacts
-  - oraclejdk8
+  - openjdk8
 env:
   # Doc deployment
   - SERVER=jetty DATABASE=h2 ENV=development DEPLOY_DOCS=true
@@ -20,11 +20,10 @@ env:
   - SERVER=jetty DATABASE=postgres ENV=development
   # Tomcat
   - SERVER=tomcat7 DATABASE=h2 ENV=development
-dist: precise
 
 before_install:
   # Gets scripts
-  - git clone -b v1.2.1 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
+  - git clone -b v1.2.2 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
   # Sets scripts as executable
   - chmod -R +x ~/.scripts/*
   - chmod +x ./.scripts/create-test-databases.sh

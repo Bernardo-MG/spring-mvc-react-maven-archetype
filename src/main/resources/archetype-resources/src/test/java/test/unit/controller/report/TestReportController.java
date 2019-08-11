@@ -34,6 +34,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,7 @@ import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
 import ${package}.controller.report.ReportController;
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
 import ${package}.service.DefaultExampleEntityReportService;
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
@@ -58,7 +59,7 @@ public final class TestReportController {
     /**
      * PDF view URL.
      */
-    private static final String URL_PDF = "/entity/pdf";
+    private static final String URL_PDF = "/rest/entity/pdf";
 
     /**
      * Mocked MVC context.
@@ -80,7 +81,8 @@ public final class TestReportController {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_PDF)).build();
+                        .contentType(MediaType.APPLICATION_PDF))
+                .build();
     }
 
     /**
@@ -101,7 +103,8 @@ public final class TestReportController {
 
         result = mockMvc.perform(getRequest());
 
-        content = result.andReturn().getResponse().getHeader("Content-disposition");
+        content = result.andReturn().getResponse()
+                .getHeader("Content-disposition");
 
         Assert.assertEquals("inline; filename=EntityReport.pdf", content);
     }
@@ -114,12 +117,12 @@ public final class TestReportController {
     private final ReportController getController() {
         final ExampleEntityService service; // Mocked unit codex
         final ExampleEntityReportService reportService; // Mocked unit codex
-        final Iterable<DefaultExampleEntity> entities;
+        final Iterable<? extends ExampleEntity> entities;
 
-        entities = new ArrayList<DefaultExampleEntity>();
+        entities = new ArrayList<>();
 
         service = Mockito.mock(ExampleEntityService.class);
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
+        Mockito.when(service.getAllEntities()).thenReturn((Iterable) entities);
 
         reportService = new DefaultExampleEntityReportService();
 

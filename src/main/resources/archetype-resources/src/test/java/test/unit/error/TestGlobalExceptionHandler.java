@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2017 the original author or authors.
+ * Copyright (c) ${currentYear} the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,7 +42,8 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
+ * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and
+ * handles errors.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -97,7 +98,7 @@ public final class TestGlobalExceptionHandler {
 
         service = Mockito.mock(ExampleEntityService.class);
 
-        Mockito.when(service.getEntities(Mockito.any()))
+        Mockito.when(service.findByNameQuery(Mockito.any(), Mockito.any()))
                 .thenThrow(RuntimeException.class);
 
         return new ExampleEntityController(service);

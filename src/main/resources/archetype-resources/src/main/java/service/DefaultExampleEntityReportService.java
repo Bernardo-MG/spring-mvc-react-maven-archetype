@@ -40,7 +40,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Default implementation of the report service.
@@ -61,7 +61,7 @@ public final class DefaultExampleEntityReportService
 
     @Override
     public final JasperPrint
-            getReport(final Iterable<DefaultExampleEntity> data) {
+            getReport(final Iterable<? extends ExampleEntity> data) {
         final File reportFile;
         final JasperReport jasperReport;
         final JasperPrint jasperPrint;

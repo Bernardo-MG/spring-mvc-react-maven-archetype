@@ -26,18 +26,19 @@
 
    <!-- CSS -->
    <link rel="stylesheet" th:href="@{/resources/css/index.css}">
-   <link th:href="@{/resources/style.css}" rel="stylesheet" />
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 </head>
 <body>
 
+   <noscript>Javascript should be enabled for this app to run</noscript>
+
    <div id="root">
       <div id="loader" class="loader"></div>
    </div>
 
-   <script th:src="@{/resources/vendor.bundle.js}"></script>
-   <script th:src="@{/resources/bundle.js}"></script>
+   <script th:src="@{/resources/vendor.js}"></script>
+   <script th:src="@{/resources/app.js}"></script>
 
 </body>
 </html>

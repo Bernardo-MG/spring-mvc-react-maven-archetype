@@ -30,8 +30,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.PersistentExampleEntity;
+
+import ${package}.model.EntityForm;
 import ${package}.repository.ExampleEntityRepository;
 
 /**
@@ -64,8 +66,13 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final ExampleEntity add(final DefaultExampleEntity entity) {
-        return getExampleEntityRepository().save(entity);
+    public final ExampleEntity add(final String name) {
+        final PersistentExampleEntity save;
+
+        save = new PersistentExampleEntity();
+        save.setName(name);
+
+        return entityRepository.save(save);
     }
 
     /**
@@ -84,38 +91,45 @@ public class DefaultExampleEntityService implements ExampleEntityService {
 
         checkNotNull(identifier, "Received a null pointer as identifier");
 
-        if (getExampleEntityRepository().existsById(identifier)) {
-            entity = getExampleEntityRepository().getOne(identifier);
+        if (entityRepository.existsById(identifier)) {
+            entity = entityRepository.getOne(identifier);
         } else {
-            entity = new DefaultExampleEntity();
+            entity = new PersistentExampleEntity();
         }
 
         return entity;
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity> getAllEntities() {
-        return getExampleEntityRepository().findAll();
+    public final Iterable<? extends ExampleEntity>
+            findByNameQuery(final String query, final Pageable page) {
+        return entityRepository.findByNameContaining(query, page);
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity>
-            getEntities(final Pageable page) {
-        return getExampleEntityRepository().findAll(page);
+    public final Iterable<PersistentExampleEntity> getAllEntities() {
+        return entityRepository.findAll();
     }
 
     @Override
-    public final void remove(final DefaultExampleEntity entity) {
-        getExampleEntityRepository().delete(entity);
+    public final void remove(final Integer id) {
+        final PersistentExampleEntity delete;
+
+        delete = new PersistentExampleEntity();
+        delete.setId(id);
+
+        entityRepository.delete(delete);
     }
 
-    /**
-     * Returns the repository used to acquire the domain entities.
-     *
-     * @return the repository used to acquire the domain entities
-     */
-    private final ExampleEntityRepository getExampleEntityRepository() {
-        return entityRepository;
+    @Override
+    public final ExampleEntity update(final EntityForm entity) {
+        final PersistentExampleEntity save;
+
+        save = new PersistentExampleEntity();
+        save.setId(entity.getId());
+        save.setName(entity.getName());
+
+        return entityRepository.save(save);
     }
 
 }

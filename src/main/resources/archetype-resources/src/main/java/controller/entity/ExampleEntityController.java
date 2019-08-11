@@ -32,11 +32,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.EntityForm;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -69,48 +71,54 @@ public class ExampleEntityController {
 
     /**
      * Creates an entity.
+     * 
+     * @param entity
+     *            entity to create
+     * @return the created entity
      */
     @PostMapping
-    public final void createEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().add(entity);
+    public ExampleEntity createEntity(@RequestBody final EntityForm entity) {
+        return exampleEntityService.add(entity.getName());
     }
 
     /**
      * Deletes an entity.
+     * 
+     * @param entity
+     *            entity to delete
      */
     @DeleteMapping
-    public final void deleteEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().remove(entity);
+    public void deleteEntity(final EntityForm entity) {
+        exampleEntityService.remove(entity.getId());
     }
 
     /**
      * Returns a paginated collection of entities.
      * 
+     * @param query
+     *            optional query argument
      * @param page
      *            pagination data
      * @return a paginated collection of entities
      */
     @GetMapping
-    public final Iterable<? extends ExampleEntity>
-            readEntities(final Pageable page) {
-        return getExampleEntityService().getEntities(page);
+    public Iterable<? extends ExampleEntity> readEntities(
+            @RequestParam(value = "query", required = false,
+                    defaultValue = "") final String query,
+            final Pageable page) {
+        return exampleEntityService.findByNameQuery(query, page);
     }
 
     /**
      * Updates an entity.
+     * 
+     * @param entity
+     *            entity to update
+     * @return the updated entity
      */
     @PutMapping
-    public final void updateEntity(final DefaultExampleEntity entity) {
-        getExampleEntityService().add(entity);
-    }
-
-    /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
+    public ExampleEntity updateEntity(@RequestBody final EntityForm entity) {
+        return exampleEntityService.update(entity);
     }
 
 }
