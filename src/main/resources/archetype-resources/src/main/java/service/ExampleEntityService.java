@@ -27,7 +27,7 @@ package ${package}.service;
 import org.springframework.data.domain.Pageable;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.EntityForm;
 
 /**
  * Service for the example entity domain.
@@ -95,6 +95,6 @@ public interface ExampleEntityService {
      *            entity to update
      * @return the persisted entity
      */
-    public ExampleEntity update(final DefaultExampleEntity entity);
+    public ExampleEntity update(final EntityForm entity);
 
 }

@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.EntityForm;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -75,7 +75,7 @@ public class ExampleEntityController {
      *            entity to create
      */
     @PostMapping
-    public void createEntity(final DefaultExampleEntity entity) {
+    public void createEntity(final EntityForm entity) {
         exampleEntityService.add(entity.getName());
     }
 
@@ -86,7 +86,7 @@ public class ExampleEntityController {
      *            entity to delete
      */
     @DeleteMapping
-    public void deleteEntity(final DefaultExampleEntity entity) {
+    public void deleteEntity(final EntityForm entity) {
         exampleEntityService.remove(entity.getId());
     }
 
@@ -114,7 +114,7 @@ public class ExampleEntityController {
      *            entity to update
      */
     @PutMapping
-    public void updateEntity(final DefaultExampleEntity entity) {
+    public void updateEntity(final EntityForm entity) {
         exampleEntityService.update(entity);
     }
 

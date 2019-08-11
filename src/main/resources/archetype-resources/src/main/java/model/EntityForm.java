@@ -38,7 +38,7 @@ import com.google.common.base.MoreObjects;
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public class DefaultExampleEntity implements Serializable {
+public class EntityForm implements Serializable {
 
     /**
      * Serialization ID.
@@ -61,7 +61,7 @@ public class DefaultExampleEntity implements Serializable {
     /**
      * Constructs an example entity.
      */
-    public DefaultExampleEntity() {
+    public EntityForm() {
         super();
     }
 
@@ -79,7 +79,7 @@ public class DefaultExampleEntity implements Serializable {
             return false;
         }
 
-        final DefaultExampleEntity other = (DefaultExampleEntity) obj;
+        final EntityForm other = (EntityForm) obj;
         return Objects.equals(id, other.id);
     }
 

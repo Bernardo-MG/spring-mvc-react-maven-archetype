@@ -33,7 +33,7 @@ import org.springframework.stereotype.Service;
 import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.PersistentExampleEntity;
 
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.EntityForm;
 import ${package}.repository.ExampleEntityRepository;
 
 /**
@@ -122,7 +122,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final ExampleEntity update(final DefaultExampleEntity entity) {
+    public final ExampleEntity update(final EntityForm entity) {
         final PersistentExampleEntity save;
 
         save = new PersistentExampleEntity();
