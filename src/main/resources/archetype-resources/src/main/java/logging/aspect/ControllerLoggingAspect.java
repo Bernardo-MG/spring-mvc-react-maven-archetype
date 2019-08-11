@@ -24,8 +24,6 @@
 
 package ${package}.logging.aspect;
 
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -76,8 +74,7 @@ public class ControllerLoggingAspect {
             argNames = "joinPoint")
     public void beforeCall(final JoinPoint joinPoint) {
         LOGGER.debug("Calling {} with arguments {}",
-                joinPoint.getSignature().toShortString(),
-                Arrays.asList(joinPoint.getArgs()));
+                joinPoint.getSignature().toShortString(), joinPoint.getArgs());
     }
 
 }
