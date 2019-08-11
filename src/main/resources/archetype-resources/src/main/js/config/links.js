@@ -14,6 +14,11 @@ const sideLinks = [
       text: 'Form',
       link: '/form',
       id: 'form'
+   },
+   {
+      text: 'Report',
+      link: '/pdf',
+      id: 'pdf'
    }
 ];
 

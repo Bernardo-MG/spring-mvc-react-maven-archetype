@@ -13,7 +13,7 @@ import TextField from '@material-ui/core/TextField';
 
 import { create } from 'entities/actions';
 
-function DataForm({ action }) {
+function DataForm({ intl, action }) {
 
    const [name, setName] = React.useState('');
 
@@ -44,7 +44,7 @@ function DataForm({ action }) {
                onKeyPress={handleKeyPress}
             />
             <Button variant='contained' onClick={handleClick}>
-               {'send'}
+               { intl.formatMessage({ id: 'form.send' }) }
             </Button>
          </Grid>
       </form>

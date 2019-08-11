@@ -28,13 +28,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -94,10 +92,6 @@ public class ReportController {
     /**
      * Generates a PDF report and returns it in the response.
      * 
-     * @param model
-     *            model
-     * @param request
-     *            HTTP request
      * @param response
      *            HTTP response
      * @throws JRException
@@ -106,9 +100,7 @@ public class ReportController {
      *             if there is a problem when streaming into the response
      */
     @GetMapping(path = "/pdf")
-    public void getPdfReport(final Model model,
-            final HttpServletRequest request,
-            final HttpServletResponse response)
+    public void getPdfReport(final HttpServletResponse response)
             throws JRException, IOException {
         final JasperPrint jasperPrint;
 
