@@ -37,7 +37,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.bernardomg.example.test.model.ExampleEntity;
 import com.google.common.collect.Iterables;
 
 import org.junit.jupiter.api.Test;

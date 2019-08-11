@@ -37,9 +37,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bernardomg.example.test.model.EntityForm;
-import com.bernardomg.example.test.model.ExampleEntity;
-
 import ${package}.model.ExampleEntity;
 import ${package}.model.EntityForm;
 import ${package}.service.ExampleEntityService;
