@@ -36,6 +36,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bernardomg.example.test.model.EntityForm;
+import com.bernardomg.example.test.model.ExampleEntity;
+
 import ${package}.model.ExampleEntity;
 import ${package}.model.EntityForm;
 import ${package}.service.ExampleEntityService;
@@ -73,10 +76,11 @@ public class ExampleEntityController {
      * 
      * @param entity
      *            entity to create
+     * @return the created entity
      */
     @PostMapping
-    public void createEntity(final EntityForm entity) {
-        exampleEntityService.add(entity.getName());
+    public ExampleEntity createEntity(final EntityForm entity) {
+        return exampleEntityService.add(entity.getName());
     }
 
     /**
@@ -112,10 +116,11 @@ public class ExampleEntityController {
      * 
      * @param entity
      *            entity to update
+     * @return the updated entity
      */
     @PutMapping
-    public void updateEntity(final EntityForm entity) {
-        exampleEntityService.update(entity);
+    public ExampleEntity updateEntity(final EntityForm entity) {
+        return exampleEntityService.update(entity);
     }
 
 }
