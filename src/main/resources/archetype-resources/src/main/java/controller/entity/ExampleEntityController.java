@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -79,7 +80,7 @@ public class ExampleEntityController {
      * @return the created entity
      */
     @PostMapping
-    public ExampleEntity createEntity(final EntityForm entity) {
+    public ExampleEntity createEntity(@RequestBody final EntityForm entity) {
         return exampleEntityService.add(entity.getName());
     }
 
@@ -119,7 +120,7 @@ public class ExampleEntityController {
      * @return the updated entity
      */
     @PutMapping
-    public ExampleEntity updateEntity(final EntityForm entity) {
+    public ExampleEntity updateEntity(@RequestBody final EntityForm entity) {
         return exampleEntityService.update(entity);
     }
 

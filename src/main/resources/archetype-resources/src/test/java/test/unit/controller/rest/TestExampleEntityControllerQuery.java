@@ -112,7 +112,7 @@ public final class TestExampleEntityControllerQuery {
      * Verifies that an empty string is used when there is no query.
      */
     @Test
-    public final void testGet_NoQuery_Empty() throws Exception {
+    public final void testGet_NoQuery_EmptyQuery() throws Exception {
         final String query;
 
         mockMvc.perform(getGetRequest());
