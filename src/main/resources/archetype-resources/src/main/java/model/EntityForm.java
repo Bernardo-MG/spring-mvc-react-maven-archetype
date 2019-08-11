@@ -114,7 +114,8 @@ public class EntityForm implements Serializable {
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("entityId", id).toString();
+        return MoreObjects.toStringHelper(this).add("id", id).add("name", name)
+                .toString();
     }
 
 }

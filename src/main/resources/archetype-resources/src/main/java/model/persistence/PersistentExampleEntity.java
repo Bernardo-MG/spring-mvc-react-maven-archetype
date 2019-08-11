@@ -134,7 +134,8 @@ public class PersistentExampleEntity implements ExampleEntity {
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("entityId", id).toString();
+        return MoreObjects.toStringHelper(this).add("id", id).add("name", name)
+                .toString();
     }
 
 }
