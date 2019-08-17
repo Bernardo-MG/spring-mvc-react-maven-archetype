@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 ${symbol_pound} ${projectName}
 
-This is a [Spring MVC](https://spring.io) project using [Thymeleaf](http://www.thymeleaf.org/) templates for the views, created with the use of the [Spring MVC with Thymeleaf Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
+This is a [Spring MVC](https://spring.io) project using [React](https://reactjs.org/) templates for the frontend, created with the use of the [Spring MVC with React Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
 
 Before beginning with the new project there are a few things which should be edited:
 
