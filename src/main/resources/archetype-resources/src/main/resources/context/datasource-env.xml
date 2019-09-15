@@ -21,6 +21,7 @@
          value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }" />
       <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }" />
       <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }" />
+      <property name="poolName" value="${jpa.pool.name}" />
    </bean>
 
 </beans>
