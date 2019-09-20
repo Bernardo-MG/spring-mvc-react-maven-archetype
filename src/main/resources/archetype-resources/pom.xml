@@ -599,7 +599,7 @@
       <!-- ============================================== -->
       <plugin.frontend.node.version>v12.3.1</plugin.frontend.node.version>
       <plugin.frontend.npm.version>6.9.0</plugin.frontend.npm.version>
-      <plugin.frontend.version>1.7.6</plugin.frontend.version>
+      <plugin.frontend.version>1.8.0</plugin.frontend.version>
       <plugin.jetty.version>9.4.19.v20190610</plugin.jetty.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
       <!-- ============================================== -->
