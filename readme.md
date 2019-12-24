@@ -115,7 +115,7 @@ The project has been released under the [MIT License][license].
 
 [spring-mvc]: https://spring.io/
 
-[liquibase]: http://www.liquibase.org/
+[liquibase]: https://www.liquibase.org/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom

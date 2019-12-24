@@ -152,11 +152,11 @@ ${symbol_pound}${symbol_pound} License
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/${repoUserId}/maven/${artifactId}/view
-[maven-repo]: http://mvnrepository.com/artifact/${groupId}/${artifactId}
+[maven-repo]: https://mvnrepository.com/artifact/${groupId}/${artifactId}
 [issues]: https://github.com/${repoUserId}/${artifactId}/issues
 [javadoc-develop]: ${urlSiteDevelop}/${artifactId}/apidocs
 [javadoc-release]: ${urlSiteRelease}/${artifactId}/apidocs
-[license]: http://www.opensource.org/licenses/mit-license.php
+[license]: https://www.opensource.org/licenses/mit-license.php
 [scm]: https://github.com/${repoUserId}/${artifactId}
 [site-develop]: ${urlSiteDevelop}/${artifactId}
 [site-release]: ${urlSiteRelease}/${artifactId}
