@@ -22,9 +22,7 @@
  * SOFTWARE.
  */
 /**
- * Error controllers.
- * <p>
- * These take care of application errors, and generate a response for them.
+ * Response classes.
  */
 
-package ${package}.controller.error;
+package ${package}.controller;
