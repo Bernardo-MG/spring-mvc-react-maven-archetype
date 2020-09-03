@@ -42,10 +42,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.bernardomg.tabletop.palette.controller.GlobalExceptionHandler;
-import com.bernardomg.tabletop.palette.response.DefaultResponse;
-import com.bernardomg.tabletop.palette.response.Response;
-import com.bernardomg.tabletop.palette.response.ResponseStatus;
+import ${package}.controller.GlobalExceptionHandler;
+import ${package}.response.DefaultResponse;
+import ${package}.response.Response;
+import ${package}.response.ResponseStatus;
 
 /**
  * Captures and handles exceptions for all the controllers.
