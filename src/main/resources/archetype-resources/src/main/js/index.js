@@ -11,8 +11,6 @@ import en from 'react-intl/locale-data/en';
 
 import localeData from 'i18n/messages.json';
 
-addLocaleData(en);
-
 // Data store
 const store = configureStore();
 
