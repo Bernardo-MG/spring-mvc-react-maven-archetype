@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.error;
+package ${package}.controller;
 
 import java.io.IOException;
 import java.util.stream.Collectors;

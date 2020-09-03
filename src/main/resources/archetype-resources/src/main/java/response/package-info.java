@@ -25,4 +25,4 @@
  * Response classes.
  */
 
-package ${package}.controller;
+package ${package}.response;
