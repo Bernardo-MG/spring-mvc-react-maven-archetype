@@ -511,6 +511,7 @@
       <plugin.frontend.npm.version>6.9.0</plugin.frontend.npm.version>
       <plugin.frontend.version>1.8.0</plugin.frontend.version>
       <plugin.jetty.version>9.4.20.v20190813</plugin.jetty.version>
+      <plugin.spring.boot.version>${spring.boot.version}</plugin.spring.boot.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
