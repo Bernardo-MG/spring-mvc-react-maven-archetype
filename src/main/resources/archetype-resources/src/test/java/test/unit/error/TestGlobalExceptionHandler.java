@@ -36,7 +36,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.controller.error.GlobalExceptionHandler;
+import ${package}.controller.GlobalExceptionHandler;
 import ${package}.controller.entity.ExampleEntityController;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
