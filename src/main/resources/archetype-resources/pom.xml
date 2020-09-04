@@ -214,91 +214,6 @@
          </dependencies>
       </profile>
       <!-- ============================================== -->
-      <!-- ========= EMBEDDED SERVER PROFILES =========== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Jetty profile -->
-         <!-- Sets ups Jetty for testing and local deployment -->
-         <id>jetty</id>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Jetty -->
-                  <!-- Jetty will run the web service during the integration tests -->
-                  <groupId>org.eclipse.jetty</groupId>
-                  <artifactId>jetty-maven-plugin</artifactId>
-                  <version>${plugin.jetty.version}</version>
-                  <configuration>
-                     <stopKey>STOP</stopKey>
-                     <stopPort>9999</stopPort>
-                     <stopWait>5</stopWait>
-                  </configuration>
-                  <executions>
-                     <execution>
-                        <id>start-jetty-it</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                           <goal>start</goal>
-                        </goals>
-                        <configuration>
-                           <scanIntervalSeconds>0</scanIntervalSeconds>
-                           <daemon>true</daemon>
-                           <useTestScope>true</useTestScope>
-                           <webApp>
-                              <overrideDescriptor>${project.build.directory}/${project.build.finalName}/WEB-INF/web.xml</overrideDescriptor>
-                           </webApp>
-                        </configuration>
-                     </execution>
-                     <execution>
-                        <id>stop-jetty-it</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                           <goal>stop</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <profile>
-         <!-- Tomcat 7 profile -->
-         <!-- Sets ups Tomcat 7 for testing and local deployment -->
-         <id>tomcat7</id>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Tomcat 7 -->
-                  <!-- Tomcat 7 will run the web service during the integration tests -->
-                  <groupId>org.apache.tomcat.maven</groupId>
-                  <artifactId>tomcat7-maven-plugin</artifactId>
-                  <version>${plugin.tomcat7.version}</version>
-                  <executions>
-                     <execution>
-                        <id>start-tomcat-it</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                           <goal>run</goal>
-                        </goals>
-                        <configuration>
-                           <fork>true</fork>
-                           <useTestClasspath>true</useTestClasspath>
-                           <warSourceDirectory>${project.build.directory}/${project.build.finalName}/</warSourceDirectory>
-                        </configuration>
-                     </execution>
-                     <execution>
-                        <id>stop-tomcat-it</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                           <goal>shutdown</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>
@@ -543,13 +458,13 @@
       <!-- ============================================== -->
       <!-- =============== MANIFEST DATA ================ -->
       <!-- ============================================== -->
-      <manifest.name>${packageInPathFormat}</manifest.name>
+      <manifest.name>com/bernardomg/jqassistant/test</manifest.name>
       <!-- ============================================== -->
       <!-- =============== TEMPLATE INFO ================ -->
       <!-- ============================================== -->
-      <view.keywords>${keywords}</view.keywords>
-      <site.url>${siteUrl}</site.url>
-      <social.twitter>${twitter}</social.twitter>
+      <view.keywords>"keywords"</view.keywords>
+      <site.url>https://application.com</site.url>
+      <social.twitter>@BernardoMartG</social.twitter>
       <!-- ============================================== -->
       <!-- ============= NODE ENVIRONMENT =============== -->
       <!-- ============================================== -->
@@ -584,8 +499,9 @@
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
       <slf4j.version>1.8.0-alpha2</slf4j.version>
-      <spring.data.train.version>Kay-RELEASE</spring.data.train.version>
-      <spring.version>5.0.8.RELEASE</spring.version>
+      <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+      <spring.data.train.version>Moore-SR6</spring.data.train.version>
+      <spring.version>5.2.5.RELEASE</spring.version>
       <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
       <webappRunner.version>8.5.30.0</webappRunner.version>
       <!-- ============================================== -->
@@ -696,6 +612,47 @@
          <!-- Spring ORM -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-orm</artifactId>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- =============== SPRING BOOT ================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Spring Boot Starter: Thymeleaf -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-thymeleaf</artifactId>
+         <version>${spring.boot.version}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Web -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: JPA -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-data-jpa</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Devtools -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-devtools</artifactId>
+         <version>${spring.boot.version}</version>
+         <scope>runtime</scope>
+         <optional>true</optional>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: AOP -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-aop</artifactId>
+         <version>${spring.boot.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= ASPECTJ ==================== -->
@@ -921,6 +878,19 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
          <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Test -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <version>${spring.boot.version}</version>
+         <scope>test</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>org.junit.vintage</groupId>
+               <artifactId>junit-vintage-engine</artifactId>
+            </exclusion>
+         </exclusions>
       </dependency>
    </dependencies>
 
@@ -1152,6 +1122,20 @@
                   <delimiter>@</delimiter>
                </delimiters>
             </configuration>
+         </plugin>
+         <plugin>
+            <!-- Spring Boot -->
+            <!-- Takes care of running Spring Boot application -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${plugin.spring.boot.version}</version>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>repackage</goal>
+                  </goals>
+               </execution>
+            </executions>
          </plugin>
       </plugins>
    </build>
