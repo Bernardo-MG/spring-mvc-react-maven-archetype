@@ -81,13 +81,11 @@ public class ITDefaultExampleEntityService {
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
 
-        entitiesCount = ((Collection<PersistentExampleEntity>) service
-                .getAllEntities()).size();
+        entitiesCount = Iterables.size(service.getAllEntities());
 
         service.add("ABC");
 
-        finalEntitiesCount = ((Collection<PersistentExampleEntity>) service
-                .getAllEntities()).size();
+        finalEntitiesCount = Iterables.size(service.getAllEntities());
 
         Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
     }
