@@ -27,7 +27,6 @@ package ${package}.test.unit.error;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.test.web.servlet.MockMvc;
@@ -47,7 +46,6 @@ import ${package}.test.config.UrlConfig;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestGlobalExceptionHandler {
 
     /**
