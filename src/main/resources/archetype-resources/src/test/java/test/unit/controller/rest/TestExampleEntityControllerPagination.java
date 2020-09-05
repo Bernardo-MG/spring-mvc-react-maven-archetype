@@ -91,7 +91,7 @@ public final class TestExampleEntityControllerPagination {
                         new PageableHandlerMethodArgumentResolver())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .build();
     }
 
@@ -161,7 +161,7 @@ public final class TestExampleEntityControllerPagination {
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
     /**
@@ -171,7 +171,7 @@ public final class TestExampleEntityControllerPagination {
      */
     private final RequestBuilder getGetRequestWithPage() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?page=10")
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
 }
