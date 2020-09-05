@@ -24,9 +24,6 @@
 
 package ${package}.test.integration.service;
 
-import java.util.Collection;
-
-import org.junit.platform.runner.JUnitPlatform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,7 +37,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**

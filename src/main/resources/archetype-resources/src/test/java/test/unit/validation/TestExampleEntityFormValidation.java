@@ -33,7 +33,6 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
 
 import ${package}.model.form.ExampleEntityForm;
 
