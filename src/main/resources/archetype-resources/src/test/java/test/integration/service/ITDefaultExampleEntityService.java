@@ -24,18 +24,17 @@
 
 package ${package}.test.integration.service;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Iterables;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
+import ${package}.Application;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 
@@ -49,8 +48,7 @@ import ${package}.service.ExampleEntityService;
 @SpringJUnitConfig
 @Transactional
 @Rollback
-@ContextConfiguration(locations = { "classpath:context/application-context.xml" })
-@TestPropertySource({ "classpath:config/persistence-access.properties" })
+@SpringBootTest(classes = Application.class)
 public class ITDefaultExampleEntityService {
 
     /**
