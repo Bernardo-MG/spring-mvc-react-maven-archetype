@@ -29,30 +29,22 @@ For a quick taste, there is an [example project][example-project] showing what c
 
 From the first moment the a new project is created all the usual Maven commands can be used, but due to the nature of the project some will require additional configuration.
 
-This configuration is for the database and the deployment server, and the easiest way to handle them is by using embedded dependencies, which will be set up with the 'h2' and 'jetty' or 'tomcat7' profiles.
+This configuration is for the database, and the easiest way to handle it is by using embedded dependencies, which will be set up with the 'h2' profile.
 
 ### Site generation
 
 The verify phase is required for generating all the reports, and this means that the integration tests will be run, which require all the dependencies.
 
 ```
-$ mvn verify site -P h2,jetty
+$ mvn verify site -P h2,db-properties,development
 ```
 
 ### Running the project locally
 
-The project can be run locally by using an embedded database and Jetty or Tomcat 7.
-
-Use the following command to run the project using Jetty:
+To run the project locally use the following Maven command:
 
 ```
-$ mvn jetty:run-war -P h2,jetty,db-properties,development
-```
-
-Or this one for Tomcat:
-
-```
-$ mvn tomcat7:run-war -P h2,tomcat7,db-properties,development
+mvn spring-boot:run -P h2,db-properties,development
 ```
 
 
