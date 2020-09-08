@@ -15,7 +15,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using R
 - Initial sample project including working persistence and exception handling
 - Using [Liquibase][liquibase] for database versioning.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
-- Prepared for continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
+- Prepared for continuous integration with [Github][github], [Github Workflow][github-workflow] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [JUnit][junit] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
 - A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.
 - Includes basic files such as readme, gitignore and license.
@@ -122,7 +122,7 @@ The project has been released under the [MIT License][license].
 
 [github]: https://github.com/
 [bintray]: https://bintray.com/
-[travis]: https://travis-ci.org
+[github-workflow]: https://docs.github.com/en/actions/configuring-and-managing-workflows
 
 [react]: https://reactjs.org/
 [redux]: https://redux.js.org/
