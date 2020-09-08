@@ -1,6 +1,6 @@
 databaseChangeLog:
   - include:
-      file: structure/palette.yaml
+      file: structure/example.yaml
       relativeToChangelogFile: true
   - changeSet:
     id: initial_data
