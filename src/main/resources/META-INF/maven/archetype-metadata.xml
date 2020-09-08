@@ -114,7 +114,6 @@
          <includes>
             <include>.gitattributes</include>
             <include>.gitignore</include>
-            <include>.travis.yml</include>
          </includes>
       </fileSet>
       <fileSet filtered="true" encoding="UTF-8">
@@ -159,9 +158,16 @@
             <include>**/markdown/index.md</include>
          </includes>
       </fileSet>
-      <fileSet filtered="true" encoding="UTF-8">
+      <fileSet encoding="UTF-8">
          <!-- Scripts -->
          <directory>.scripts</directory>
+         <includes>
+            <include>**/*.*</include>
+         </includes>
+      </fileSet>
+      <fileSet encoding="UTF-8">
+         <!-- Github workflow -->
+         <directory>.github</directory>
          <includes>
             <include>**/*.*</include>
          </includes>
