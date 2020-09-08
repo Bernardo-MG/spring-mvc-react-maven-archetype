@@ -1094,15 +1094,6 @@
             <configuration>
                <webResources>
                   <resource>
-                     <!-- Persistence access data is filtered -->
-                     <filtering>true</filtering>
-                     <directory>${project.basedir}/src/main/resources/config</directory>
-                     <targetPath>WEB-INF/classes/config</targetPath>
-                     <includes>
-                        <include>persistence-access.properties</include>
-                     </includes>
-                  </resource>
-                  <resource>
                      <!-- The UI template is filtered -->
                      <filtering>true</filtering>
                      <directory>${project.basedir}/src/main/webapp/WEB-INF/templates</directory>
@@ -1110,11 +1101,6 @@
                      <includes>
                         <include>index.html</include>
                      </includes>
-                  </resource>
-                  <resource>
-                     <!-- Generated files -->
-                     <directory>${project.build.directory}/generated-ui</directory>
-                     <targetPath>resources/</targetPath>
                   </resource>
                </webResources>
                <!-- Variables to to override will be delimited with a @. -->
