@@ -16,8 +16,8 @@
       "url": "https://www.github.com/${repoUserId}/${artifactId}/issues"
    },
    "scripts": {
-      "development": "cross-env INPUT_PATH=./src/main/js/ MODULE_PATH=./node_modules/ OUTPUT_PATH=./target/generated-ui/ NODE_ENV=development webpack --config webpack.dev.js",
-      "build": "cross-env INPUT_PATH=./src/main/js/ MODULE_PATH=./node_modules/ OUTPUT_PATH=./target/generated-ui/ NODE_ENV=production webpack --config webpack.prod.js",
+      "development": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
+      "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
       "test": "jest"
    },
    "jest": {
