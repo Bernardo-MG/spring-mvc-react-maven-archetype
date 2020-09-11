@@ -354,10 +354,11 @@
       <!-- ============================================== -->
       <!-- ============= NODE ENVIRONMENT =============== -->
       <!-- ============================================== -->
+      <node.env.api>http://localhost:8080</node.env.api>
       <node.env.appVersion>v${project.version}</node.env.appVersion>
       <node.env.repoUrl>${project.scm.url}</node.env.repoUrl>
       <node.env.inputPath>./src/main/js/</node.env.inputPath>
-      <node.env.outputPath>./target/generated-ui/</node.env.outputPath>
+      <node.env.outputPath>./target/classes/static/</node.env.outputPath>
       <node.env.modules>./node_modules</node.env.modules>
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
