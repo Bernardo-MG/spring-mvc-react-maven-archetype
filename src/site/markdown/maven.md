@@ -21,13 +21,3 @@ Several databases are supported by default. To choose one just select the correc
 | mysql    | MySQL database        |
 | postgres | PostgreSQL database   |
 
-### Databases Authentication Source
-
-These profiles should be used only for development. In any other change it is better using environmental variables.
-
-Check the section about setting up the database.
-
-| Profile       | Server                                            |
-|---------------|---------------------------------------------------|
-| db-properties | DB authentication info taken from properties file |
-

@@ -116,19 +116,6 @@
       <!-- ============= DATABASE PROFILES ============== -->
       <!-- ============================================== -->
       <profile>
-         <!-- Properties-based database profile -->
-         <!-- Sets up the database from properties -->
-         <id>db-properties</id>
-         <activation>
-            <!-- Active by default -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <properties>
-            <!-- Authentication sources for the DB -->
-            <database.auth.source>properties</database.auth.source>
-         </properties>
-      </profile>
-      <profile>
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
          <id>h2</id>
