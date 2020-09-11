@@ -1019,7 +1019,7 @@
                   <resource>
                      <!-- The UI template is filtered -->
                      <filtering>true</filtering>
-                     <directory>${project.basedir}/src/main/webapp/WEB-INF/templates</directory>
+                     <directory>${project.basedir}/src/main/resources/templates</directory>
                      <targetPath>WEB-INF/templates</targetPath>
                      <includes>
                         <include>index.html</include>
