@@ -21,6 +21,7 @@
       "test": "jest"
    },
    "jest": {
+      "testRegex": "src/main/js/__tests__/.*\\.(js|jsx)$",
       "verbose": true,
       "transform": {
          "^.+\\.js$": "babel-jest"
