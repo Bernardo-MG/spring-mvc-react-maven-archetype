@@ -123,14 +123,6 @@
             <!-- Active by default so it can be installed by CI -->
             <activeByDefault>true</activeByDefault>
          </activation>
-         <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:h2:mem:${artifactId.replace("-", "_")}</database.url>
-            <database.username>sa</database.username>
-            <database.password></database.password>
-         </properties>
          <dependencies>
             <dependency>
                <!-- H2 database -->
@@ -151,12 +143,8 @@
             </property>
          </activation>
          <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:mysql://localhost:3306/test_mysql</database.url>
-            <database.username>root</database.username>
-            <database.password></database.password>
+            <!-- Spring context -->
+            <profile.database>mysql</profile.database>
          </properties>
          <dependencies>
             <dependency>
@@ -178,12 +166,8 @@
             </property>
          </activation>
          <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:postgresql://localhost:5432/test_postgres</database.url>
-            <database.username>postgres</database.username>
-            <database.password>pass</database.password>
+            <!-- Spring context -->
+            <profile.database>postgres</profile.database>
          </properties>
          <dependencies>
             <dependency>
@@ -265,6 +249,7 @@
                         <configuration>
                            <arguments>run build</arguments>
                            <environmentVariables>
+                              <API_ROOT>${node.env.api}</API_ROOT>
                               <APP_VERSION>${node.env.appVersion}</APP_VERSION>
                               <REPO_URL>${node.env.repoUrl}</REPO_URL>
                               <INPUT_PATH>${node.env.inputPath}</INPUT_PATH>
@@ -302,6 +287,7 @@
                         <configuration>
                            <arguments>run development</arguments>
                            <environmentVariables>
+                              <API_ROOT>${node.env.api}</API_ROOT>
                               <APP_VERSION>${node.env.appVersion}</APP_VERSION>
                               <REPO_URL>${node.env.repoUrl}</REPO_URL>
                               <INPUT_PATH>${node.env.inputPath}</INPUT_PATH>
@@ -390,7 +376,6 @@
       <jackson.version>2.11.2</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
-      <jaxb.version>2.3.1</jaxb.version>
       <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.6.2</junit.jupiter.version>
       <liquibase.version>3.10.2</liquibase.version>
@@ -464,6 +449,11 @@
       <!-- ================== SPRING ==================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Spring AOP -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-aop</artifactId>
+      </dependency>
+      <dependency>
          <!-- Spring beans -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-beans</artifactId>
@@ -502,6 +492,11 @@
          <!-- Spring transactions -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-tx</artifactId>
+      </dependency>
+      <dependency>
+         <!-- Spring Web -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-web</artifactId>
       </dependency>
       <dependency>
          <!-- Spring Web MVC -->
@@ -622,6 +617,15 @@
          </exclusions>
       </dependency>
       <!-- ============================================== -->
+      <!-- ================ SNAKEYAML =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- SnakeYAML -->
+         <groupId>org.yaml</groupId>
+         <artifactId>snakeyaml</artifactId>
+         <version>${snakeyaml.version}</version>
+      </dependency>
+      <!-- ============================================== -->
       <!-- ============== JASPERREPORTS ================= -->
       <!-- ============================================== -->
       <dependency>
@@ -703,14 +707,6 @@
          <!-- Jackson annotations -->
          <groupId>com.fasterxml.jackson.core</groupId>
          <artifactId>jackson-annotations</artifactId>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- =================== JAXB ===================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <groupId>javax.xml.bind</groupId>
-         <artifactId>jaxb-api</artifactId>
-         <version>${jaxb.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ============ OTHER DEPENDENCIES ============== -->
