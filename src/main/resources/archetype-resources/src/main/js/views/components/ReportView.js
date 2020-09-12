@@ -2,7 +2,7 @@ import React from 'react';
 
 import api from 'api';
 
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -28,7 +28,7 @@ function ReportView({ intl }) {
 }
 
 ReportView.propTypes = {
-   intl: intlShape.isRequired
+   intl: PropTypes.object.isRequired
 };
 
 export default injectIntl(ReportView);

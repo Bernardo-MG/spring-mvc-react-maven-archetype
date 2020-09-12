@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -53,7 +53,7 @@ function DataForm({ intl, action }) {
 }
 
 DataForm.propTypes = {
-   intl: intlShape.isRequired,
+   intl: PropTypes.object.isRequired,
    action: PropTypes.func.isRequired
 };
 

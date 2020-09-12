@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import { selectSearchingEntities } from 'search/selectors';
 
@@ -61,7 +61,7 @@ function DataView({ intl, loading, search, changePage }) {
 
 DataView.propTypes = {
    loading: PropTypes.bool.isRequired,
-   intl: intlShape.isRequired,
+   intl: PropTypes.object.isRequired,
    search: PropTypes.func.isRequired,
    changePage: PropTypes.func.isRequired
 };
