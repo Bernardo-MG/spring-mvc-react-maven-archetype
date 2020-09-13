@@ -1,7 +1,7 @@
 import { crudRequests } from 'api/operations';
 
 import { normalize } from 'normalizr';
-import { Entity as EntitySchema } from 'entities/schema';
+import { entity as EntitySchema } from 'entities/schema';
 
 const EntityPath = '/rest/Entity/';
 

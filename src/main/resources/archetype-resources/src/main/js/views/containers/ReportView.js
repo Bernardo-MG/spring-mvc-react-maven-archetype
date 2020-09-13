@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { entityReport } from 'api/actions';
 
