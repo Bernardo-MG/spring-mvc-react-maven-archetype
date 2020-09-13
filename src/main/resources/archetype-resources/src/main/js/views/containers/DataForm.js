@@ -2,8 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch } from 'react-redux';
 
 import { injectIntl } from 'react-intl';
 
@@ -13,9 +12,11 @@ import TextField from '@material-ui/core/TextField';
 
 import { create } from 'entities/actions';
 
-function DataForm({ intl, action }) {
+function DataForm({ intl }) {
 
    const [name, setName] = React.useState('');
+
+   const dispatch = useDispatch();
 
    function handleNameChange(event) {
       setName(event.target.value);
@@ -23,13 +24,13 @@ function DataForm({ intl, action }) {
 
    function handleKeyPress(event) {
       if ((event) && (event.key === 'Enter')) {
-         action(name);
+         dispatch(create(name));
       }
    }
 
    function handleClick(event) {
       if ((event) && (event.type === 'click')) {
-         action(name);
+         dispatch(create(name));
       }
    }
 
@@ -57,17 +58,4 @@ DataForm.propTypes = {
    action: PropTypes.func.isRequired
 };
 
-const mapStateToProps = () => {
-   return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-   return {
-      action: bindActionCreators(create, dispatch)
-   };
-};
-
-export default injectIntl(connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(DataForm));
+export default injectIntl(DataForm);
