@@ -25,9 +25,7 @@ const transformContent = (func) => (response) => {
 
 const Entities = {
    create: (data) => crudRequests.create(EntityPath, data),
-   delete: (id) => crudRequests.delete(EntityPath, id),
-   update: (data) => crudRequests.update(EntityPath, data.id, data),
-   read: () => crudRequests.read(EntityPath).then(transformContent(normalizeEntity))
+   byTitle: (query, page, perPage) => crudRequests.read(`/rest/entity?query=${query}&&page=${page}&&size=${perPage}`).then(transformContent(normalizeEntity))
 };
 
 export {

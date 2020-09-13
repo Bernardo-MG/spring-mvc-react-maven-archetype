@@ -1,7 +1,7 @@
 import { put, takeLatest, call, select } from 'redux-saga/effects';
 import { SEARCH_ENTITY, SEARCH_ENTITY_SUCCESS } from 'search/actions/types';
 import { success, failure, setIds as setEntityIds, setCurrentPage, setTotalPages, setTotalElements, setPerPage } from 'search/actions/entities';
-import api from 'api';
+import { Entities } from 'api/requests';
 import { selectEntityPage, selectEntityPerPage } from 'search/selectors';
 import { addEntities } from 'entities/actions';
 import { normalize } from 'normalizr';
@@ -13,7 +13,7 @@ export function* search(action) {
    const page = yield select(selectEntityPage);
    const perPage = yield select(selectEntityPerPage);
    try {
-      response = yield call(api.Entities.byTitle, query, page, perPage);
+      response = yield call(Entities.byTitle, query, page, perPage);
       yield put(success(response));
    } catch (err) {
       yield put(failure(err));
