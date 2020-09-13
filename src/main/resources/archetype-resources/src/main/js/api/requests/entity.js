@@ -1,12 +1,12 @@
 import { crudRequests } from 'api/operations';
 
 import { normalize } from 'normalizr';
-import { Entity as Entitieschema } from 'domain/schema';
+import { Entity as EntitySchema } from 'entities/schema';
 
 const EntityPath = '/rest/Entity/';
 
 function normalizeEntity(response) {
-   const normalized = normalize(response, [Entitieschema]);
+   const normalized = normalize(response, [EntitySchema]);
    let result;
 
    if (normalized.entities.Entities) {
