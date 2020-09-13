@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import api from 'api';
 
 import { injectIntl } from 'react-intl';
