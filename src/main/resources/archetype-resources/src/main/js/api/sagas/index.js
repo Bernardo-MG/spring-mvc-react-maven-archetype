@@ -7,5 +7,6 @@ import { report } from 'api/sagas/report';
 
 export const apiSagas = [
    ...requestFailureSagas,
-   ...crud('ENTITY', Entities)
+   ...crud('ENTITY', Entities),
+   ...report('ENTITY', Entities)
 ];
