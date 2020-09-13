@@ -1,7 +1,5 @@
 import superagent, { parse } from 'superagent';
 
-const API_ROOT = 'http://localhost:8080';
-
 function saveFile(blob, type, filename) {
    // It is necessary to create a new blob object with mime-type explicitly set
    // otherwise only Chrome works like it should
@@ -26,28 +24,12 @@ function saveFile(blob, type, filename) {
    }
 }
 
-const requests = {
+export const fileRequests = {
    download: (url, filename) => superagent.get(`${API_ROOT}${url}`).responseType('blob').parse(parse.image)
       .then(
          (response) => {
             saveFile(response.body, response.type, filename);
          },
          (error) => error.message || 'Request failed'
-      ),
-   get: (url) => superagent.get(`${API_ROOT}${url}`).then((response) => JSON.parse(response.text)),
-   post: (url, body) => superagent.post(`${API_ROOT}${url}`, body).then((response) => JSON.parse(response.text))
-};
-
-const Entities = {
-   create: (name) => requests.post('/rest/entity', { name }),
-   byTitle: (query, page, perPage) => requests.get(`/rest/entity?query=${query}&&page=${page}&&size=${perPage}`)
-};
-
-const Report = {
-   download: () => requests.download('/rest/entity/pdf', 'report.pdf')
-};
-
-export default {
-   Entities,
-   Report
+      )
 };
