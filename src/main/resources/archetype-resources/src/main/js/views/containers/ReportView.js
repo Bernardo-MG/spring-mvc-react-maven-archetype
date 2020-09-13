@@ -2,7 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import api from 'api';
+import { useSelector } from 'react-redux';
+
+import { entityReport } from 'api/actions';
 
 import { injectIntl } from 'react-intl';
 
@@ -10,10 +12,11 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 function ReportView({ intl }) {
+   const dispatch = useDispatch();
 
    function handleClick(event) {
       if ((event) && (event.type === 'click')) {
-         api.Report.download();
+         dispatch(entityReport());
       }
    }
 

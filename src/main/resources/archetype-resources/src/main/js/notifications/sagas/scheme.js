@@ -16,8 +16,8 @@ export function* notifyDeleted() {
    yield put(notifySuccess('deleted_message'));
 }
 
-export const schemeNotificationSagas = [
-   takeLatest(types.SCHEME_SAVED, notifySaved),
-   takeLatest(types.SCHEME_UPDATED, notifyUpdated),
-   takeLatest(types.SCHEME_DELETED, notifyDeleted)
+export const entityNotificationSagas = [
+   takeLatest(types.ENTITY_SAVED, notifySaved),
+   takeLatest(types.ENTITY_UPDATED, notifyUpdated),
+   takeLatest(types.ENTITY_DELETED, notifyDeleted)
 ];

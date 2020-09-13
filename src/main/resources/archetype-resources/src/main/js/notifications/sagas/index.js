@@ -1,5 +1,5 @@
-import { schemeNotificationSagas } from 'notifications/sagas/scheme';
+import { entityNotificationSagas } from 'notifications/sagas/entity';
 
 export const notificationSagas = [
-   ...schemeNotificationSagas
+   ...entityNotificationSagas
 ];

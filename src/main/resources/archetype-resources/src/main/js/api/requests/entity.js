@@ -12,7 +12,7 @@ function normalizeEntity(response) {
    if (normalized.entities.Entities) {
       result = normalized.entities;
    } else {
-      result = { Entities: [], palettes: [], paints: [] };
+      result = { Entities: [] };
    }
 
    return result;
