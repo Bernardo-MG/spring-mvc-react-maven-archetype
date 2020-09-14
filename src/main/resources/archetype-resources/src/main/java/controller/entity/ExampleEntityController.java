@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2019 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,8 +37,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ${package}.model.ExampleEntity;
 import ${package}.model.EntityForm;
+import ${package}.model.ExampleEntity;
+import ${package}.response.DefaultResponse;
+import ${package}.response.Response;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -77,8 +79,13 @@ public class ExampleEntityController {
      * @return the created entity
      */
     @PostMapping
-    public ExampleEntity createEntity(@RequestBody final EntityForm entity) {
-        return exampleEntityService.add(entity.getName());
+    public Response<ExampleEntity>
+            createEntity(@RequestBody final EntityForm entity) {
+        final ExampleEntity result;
+
+        result = exampleEntityService.add(entity.getName());
+
+        return new DefaultResponse<>(result);
     }
 
     /**
@@ -88,8 +95,10 @@ public class ExampleEntityController {
      *            entity to delete
      */
     @DeleteMapping
-    public void deleteEntity(final EntityForm entity) {
+    public Response<EntityForm> deleteEntity(final EntityForm entity) {
         exampleEntityService.remove(entity.getId());
+
+        return new DefaultResponse<>(entity);
     }
 
     /**
@@ -117,8 +126,13 @@ public class ExampleEntityController {
      * @return the updated entity
      */
     @PutMapping
-    public ExampleEntity updateEntity(@RequestBody final EntityForm entity) {
-        return exampleEntityService.update(entity);
+    public Response<ExampleEntity>
+            updateEntity(@RequestBody final EntityForm entity) {
+        final ExampleEntity result;
+
+        result = exampleEntityService.update(entity);
+
+        return new DefaultResponse<>(result);
     }
 
 }
