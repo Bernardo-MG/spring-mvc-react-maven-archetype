@@ -37,6 +37,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bernardomg.abd.test.model.ExampleEntity;
+import com.bernardomg.abd.test.response.DefaultResponse;
+import com.bernardomg.abd.test.response.Response;
+
 import ${package}.model.EntityForm;
 import ${package}.model.ExampleEntity;
 import ${package}.response.DefaultResponse;
@@ -111,11 +115,15 @@ public class ExampleEntityController {
      * @return a paginated collection of entities
      */
     @GetMapping
-    public Iterable<? extends ExampleEntity> readEntities(
+    public Response<Iterable<? extends ExampleEntity>> readEntities(
             @RequestParam(value = "query", required = false,
                     defaultValue = "") final String query,
             final Pageable page) {
-        return exampleEntityService.findByNameQuery(query, page);
+        final Iterable<? extends ExampleEntity> result;
+
+        result = exampleEntityService.findByNameQuery(query, page);
+
+        return new DefaultResponse<>(result);
     }
 
     /**
