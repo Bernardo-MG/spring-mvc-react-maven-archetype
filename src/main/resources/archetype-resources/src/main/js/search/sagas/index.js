@@ -4,8 +4,6 @@ import { success, failure, setIds as setEntityIds, setCurrentPage, setTotalPages
 import { Entities } from 'api/requests';
 import { selectEntityPage, selectEntityPerPage } from 'search/selectors';
 import { addEntities } from 'entities/actions';
-import { normalize } from 'normalizr';
-import { entity } from 'entities/schema';
 
 export function* search(action) {
    let response;
@@ -21,9 +19,8 @@ export function* search(action) {
 }
 
 export function* saveEntities(action) {
-   const normalized = normalize(action.payload.content, [entity]);
-   yield put(addEntities(normalized.entities.entities));
-   yield put(setEntityIds(normalized.result));
+   yield put(addEntities(action.payload.content));
+   yield put(setEntityIds(action.payload.ids));
 }
 
 export function* setEntityPagination(action) {

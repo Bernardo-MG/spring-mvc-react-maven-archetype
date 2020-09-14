@@ -9,18 +9,18 @@ function normalizeEntity(response) {
    const normalized = normalize(response, [EntitySchema]);
    let result;
 
-   if (normalized.entities.Entities) {
-      result = normalized.entities;
+   if (normalized.entities) {
+      result = { content: normalized.entities.entities, ids: normalized.result };
    } else {
-      result = { Entities: [] };
+      result = { content: {}, ids: [] };
    }
 
    return result;
 }
 
 const transformContent = (func) => (response) => {
-   const content = func(response.content);
-   return { ...response, content };
+   const content = func(response.content.content);
+   return { ...response.content, ...content };
 };
 
 const Entities = {
