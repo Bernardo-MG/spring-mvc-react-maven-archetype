@@ -1,4 +1,4 @@
-import { crudRequests } from 'api/operations';
+import { crudRequests, fileRequests } from 'api/operations';
 
 import { normalize } from 'normalizr';
 import { entity as EntitySchema } from 'entities/schema';
@@ -25,7 +25,8 @@ const transformContent = (func) => (response) => {
 
 const Entities = {
    create: (data) => crudRequests.create(EntityPath, data),
-   byTitle: (query, page, perPage) => crudRequests.read(`${EntityPath}?query=${query}&&page=${page}&&size=${perPage}`).then(transformContent(normalizeEntity))
+   byTitle: (query, page, perPage) => crudRequests.read(`${EntityPath}?query=${query}&&page=${page}&&size=${perPage}`).then(transformContent(normalizeEntity)),
+   report: () => fileRequests.download(`${EntityPath}pdf`, 'entities.pdf')
 };
 
 export {
