@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+import * as Yup from 'yup';
 
 import { useDispatch } from 'react-redux';
 
@@ -10,46 +11,50 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
+import { Formik, Form } from 'formik';
+
 import { create } from 'entities/actions';
 
-function DataForm({ intl }) {
+const EntitySchema = Yup.object().shape({
+   name: Yup.string()
+      .min(0, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required')
+});
 
-   const [name, setName] = React.useState('');
+function DataForm({ intl }) {
+   const initialValues = {
+      name: ''
+   };
 
    const dispatch = useDispatch();
 
-   function handleNameChange(event) {
-      setName(event.target.value);
+   function onSelect(event) {
+      dispatch(create(event));
    }
 
-   function handleKeyPress(event) {
-      if ((event) && (event.key === 'Enter')) {
-         dispatch(create(name));
-      }
-   }
-
-   function handleClick(event) {
-      if ((event) && (event.type === 'click')) {
-         dispatch(create(name));
-      }
-   }
-
-   return (
-      <form noValidate autoComplete="off">
-         <Grid container direction='column'>
-            <TextField
-               id='name'
-               label='name'
-               value={name}
-               onChange={handleNameChange}
-               onKeyPress={handleKeyPress}
-            />
-            <Button variant='contained' onClick={handleClick}>
-               { intl.formatMessage({ id: 'form.send' }) }
-            </Button>
-         </Grid>
-      </form>
-   );
+   return <Formik
+      onSubmit={(form) => onSelect(form)}
+      initialValues={initialValues}
+      validationSchema={EntitySchema}>
+      {({ values, errors, touched, handleChange, handleBlur }) => (
+         <Form>
+            <Grid container direction='column'>
+               <TextField
+                  id='name'
+                  label='name'
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={(errors.name && touched.name) && errors.name}
+               />
+               <Button aria-label="save" type="submit" variant='contained'>
+                  { intl.formatMessage({ id: 'form.send' }) }
+               </Button>
+            </Grid>
+         </Form>
+      )}
+   </Formik>;
 
 }
 
