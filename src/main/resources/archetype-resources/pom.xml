@@ -142,10 +142,6 @@
                <value>mysql</value>
             </property>
          </activation>
-         <properties>
-            <!-- Spring context -->
-            <profile.database>mysql</profile.database>
-         </properties>
          <dependencies>
             <dependency>
                <!-- MySQL connector -->
@@ -165,10 +161,6 @@
                <value>postgres</value>
             </property>
          </activation>
-         <properties>
-            <!-- Spring context -->
-            <profile.database>postgres</profile.database>
-         </properties>
          <dependencies>
             <dependency>
                <!-- Postgres connector -->
