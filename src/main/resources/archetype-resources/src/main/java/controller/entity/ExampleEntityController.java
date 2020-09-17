@@ -93,6 +93,7 @@ public class ExampleEntityController {
      * 
      * @param entity
      *            entity to delete
+     * @return the deleted entity
      */
     @DeleteMapping
     public Response<EntityForm> deleteEntity(final EntityForm entity) {
