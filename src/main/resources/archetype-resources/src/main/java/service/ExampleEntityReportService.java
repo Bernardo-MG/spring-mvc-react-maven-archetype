@@ -41,6 +41,8 @@ public interface ExampleEntityReportService {
      * 
      * @param data
      *            data to populate the report
+     * @param output
+     *            stream to store the report
      */
     public void getReport(final Iterable<? extends ExampleEntity> data,
             final OutputStream output);
