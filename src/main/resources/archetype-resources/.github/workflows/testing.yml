@@ -38,4 +38,4 @@ jobs:
       with:
         java-version: ${{ matrix.jdk }}
     - name: Run all tests
-      run: mvn clean verify -P${{ matrix.db }},development
+      run: mvn clean verify -P${{ matrix.db }},development -Dspring.profiles.active=test,${{ matrix.db }}
