@@ -18,7 +18,8 @@ jobs:
             MYSQL_ALLOW_EMPTY_PASSWORD: yes
             MYSQL_DATABASE: test_mysql
         ports:
-            - 3306
+          # Maps port on service container to the host
+            - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
       postgres:
         image: postgres
@@ -30,6 +31,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          # Maps port on service container to the host
+          - 5432:5432
     steps:
     - name: Check-out
       uses: actions/checkout@v2
