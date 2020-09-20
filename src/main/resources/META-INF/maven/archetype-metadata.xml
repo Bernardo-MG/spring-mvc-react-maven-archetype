@@ -61,20 +61,9 @@
             <include>**/*.json</include>
          </includes>
       </fileSet>
-      <fileSet filtered="true" encoding="UTF-8">
+      <fileSet filtered="false" encoding="UTF-8">
          <!-- Resources -->
          <directory>src/main/resources</directory>
-         <includes>
-            <include>**/*.*</include>
-         </includes>
-         <excludes>
-            <!-- Reports should not be filtered -->
-            <exclude>**/report/*.*</exclude>
-         </excludes>
-      </fileSet>
-      <fileSet filtered="false" encoding="UTF-8">
-         <!-- Reports -->
-         <directory>src/main/resources/report</directory>
          <includes>
             <include>**/*.*</include>
          </includes>
