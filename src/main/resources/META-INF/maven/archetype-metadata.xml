@@ -67,6 +67,21 @@
          <includes>
             <include>**/*.*</include>
          </includes>
+         <excludes>
+            <!-- Files to filter -->
+            <exclude>log4j2.xml</exclude>
+            <exclude>messages/application.properties</exclude>
+            <exclude>db/changelog/data/initial.sql</exclude>
+         </excludes>
+      </fileSet>
+      <fileSet filtered="true" encoding="UTF-8">
+         <!-- Logging config -->
+         <directory>src/main/resources</directory>
+         <includes>
+            <include>log4j2.xml</include>
+            <include>messages/application.properties</include>
+            <include>db/changelog/data/initial.sql</include>
+         </includes>
       </fileSet>
       <fileSet filtered="true" packaged="true" encoding="UTF-8">
          <!-- Test sources -->
