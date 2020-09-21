@@ -4,9 +4,15 @@ import PropTypes from 'prop-types';
 
 import { Provider } from 'react-redux';
 import routes from 'routes';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import { IntlProvider } from 'react-intl';
+
+import { SnackbarProvider } from 'notistack';
+
+import Notificator from 'notify/containers/Notificator';
+
+import { DefaultSideMenuLayout } from 'layout';
 
 /**
  * Production root application.
@@ -14,9 +20,15 @@ import { IntlProvider } from 'react-intl';
 const Root = ({ store, language, i18nMessages }) => (
    <IntlProvider locale={language} defaultLocale='en' messages={i18nMessages}>
       <Provider store={store}>
-         <Router>
-            {routes}
-         </Router>
+         <SnackbarProvider>
+            <Notificator>
+               <Router>
+                  <DefaultSideMenuLayout>
+                     {routes}
+                  </DefaultSideMenuLayout>
+               </Router>
+            </Notificator>
+         </SnackbarProvider>
       </Provider>
    </IntlProvider>
 );

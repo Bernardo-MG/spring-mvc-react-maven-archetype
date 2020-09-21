@@ -24,27 +24,18 @@
 
 package ${package}.test.integration.service;
 
-import java.util.Collection;
-
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Iterables;
 
-import org.junit.jupiter.api.Test;
-
-import org.junit.Assert;
-
+import ${package}.Application;
 import ${package}.model.ExampleEntity;
-import ${package}.model.persistence.PersistentExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -54,15 +45,10 @@ import ${package}.service.ExampleEntityService;
  * the example entities repository, these tests are for verifying everything is
  * set up correctly and working.
  */
-@RunWith(JUnitPlatform.class)
-@ExtendWith(SpringExtension.class)
-@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@WebAppConfiguration
-@ContextConfiguration(locations = { "classpath:context/service.xml",
-        "classpath:context/persistence.xml",
-        "classpath:context/application-context.xml" })
-@TestPropertySource({ "classpath:config/persistence-access.properties",
-        "classpath:config/service.properties" })
+@SpringJUnitConfig
+@Transactional
+@Rollback
+@SpringBootTest(classes = Application.class)
 public class ITDefaultExampleEntityService {
 
     /**
@@ -86,15 +72,13 @@ public class ITDefaultExampleEntityService {
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
 
-        entitiesCount = ((Collection<PersistentExampleEntity>) service
-                .getAllEntities()).size();
+        entitiesCount = Iterables.size(service.getAllEntities());
 
         service.add("ABC");
 
-        finalEntitiesCount = ((Collection<PersistentExampleEntity>) service
-                .getAllEntities()).size();
+        finalEntitiesCount = Iterables.size(service.getAllEntities());
 
-        Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
+        Assertions.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
     }
 
     /**
@@ -109,7 +93,7 @@ public class ITDefaultExampleEntityService {
 
         entity = service.add(name);
 
-        Assert.assertEquals(name, entity.getName());
+        Assertions.assertEquals(name, entity.getName());
     }
 
     /**
@@ -122,7 +106,7 @@ public class ITDefaultExampleEntityService {
 
         entity = service.findById(1);
 
-        Assert.assertEquals(entity.getId(), new Integer(1));
+        Assertions.assertEquals(entity.getId(), new Integer(1));
     }
 
     /**
@@ -135,7 +119,7 @@ public class ITDefaultExampleEntityService {
 
         entity = service.findById(100);
 
-        Assert.assertEquals(entity.getId(), new Integer(-1));
+        Assertions.assertEquals(entity.getId(), new Integer(-1));
     }
 
     /**
@@ -148,7 +132,7 @@ public class ITDefaultExampleEntityService {
 
         entities = service.findByNameQuery("entity_0", null);
 
-        Assert.assertEquals(9, Iterables.size(entities));
+        Assertions.assertEquals(9, Iterables.size(entities));
     }
 
 }

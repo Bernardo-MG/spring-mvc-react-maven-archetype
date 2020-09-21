@@ -1,7 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
-
-import SideMenuLayoutRoute from 'routes/SideMenuLayoutRoute';
+import { Route, Switch } from 'react-router-dom';
 
 import { Index, DataForm, DataView, ReportView } from 'views';
 
@@ -14,8 +12,8 @@ import { Index, DataForm, DataView, ReportView } from 'views';
  * - Component to show
  */
 export default <Switch>
-   <SideMenuLayoutRoute path='/' exact component={Index}/>
-   <SideMenuLayoutRoute path='/entities' exact component={DataView}/>
-   <SideMenuLayoutRoute path='/form' exact component={DataForm}/>
-   <SideMenuLayoutRoute path='/pdf' exact component={ReportView}/>
+   <Route path='/' exact component={Index}/>
+   <Route path='/entities' exact component={DataView}/>
+   <Route path='/form' exact component={DataForm}/>
+   <Route path='/pdf' exact component={ReportView}/>
 </Switch>;

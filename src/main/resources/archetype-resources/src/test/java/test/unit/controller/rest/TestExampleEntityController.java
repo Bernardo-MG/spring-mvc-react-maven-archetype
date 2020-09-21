@@ -30,8 +30,6 @@ import java.util.Collection;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
@@ -53,7 +51,6 @@ import ${package}.test.config.UrlConfig;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityController {
 
     /**
@@ -78,7 +75,7 @@ public final class TestExampleEntityController {
                         new PageableHandlerMethodArgumentResolver())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .build();
     }
 
@@ -95,8 +92,8 @@ public final class TestExampleEntityController {
         result.andExpect(MockMvcResultMatchers.status().isOk());
 
         // The response model contains the expected attributes
-        result.andExpect(
-                MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(3)));
+        result.andExpect(MockMvcResultMatchers.jsonPath("$.content",
+                Matchers.hasSize(3)));
     }
 
     /**
@@ -129,7 +126,7 @@ public final class TestExampleEntityController {
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

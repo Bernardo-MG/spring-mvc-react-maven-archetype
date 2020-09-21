@@ -27,6 +27,7 @@ package ${package}.controller.report;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,10 +36,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperPrint;
 
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
@@ -94,25 +91,22 @@ public class ReportController {
      * 
      * @param response
      *            HTTP response
-     * @throws JRException
-     *             if there is a problem during the report generation
      * @throws IOException
      *             if there is a problem when streaming into the response
      */
     @GetMapping(path = "/pdf")
     public void getPdfReport(final HttpServletResponse response)
-            throws JRException, IOException {
-        final JasperPrint jasperPrint;
-
-        jasperPrint = exampleEntityReportService
-                .getReport(exampleEntityService.getAllEntities());
+            throws IOException {
+        final OutputStream output;
 
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition",
                 String.format("inline; filename=%s.pdf", FILENAME));
 
-        JasperExportManager.exportReportToPdfStream(jasperPrint,
-                response.getOutputStream());
+        output = response.getOutputStream();
+
+        exampleEntityReportService
+                .getReport(exampleEntityService.getAllEntities(), output);
     }
 
 }

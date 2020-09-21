@@ -15,7 +15,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using R
 - Initial sample project including working persistence and exception handling
 - Using [Liquibase][liquibase] for database versioning.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
-- Prepared for continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
+- Prepared for continuous integration with [Github][github], [Github Workflow][github-workflow] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [JUnit][junit] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
 - A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.
 - Includes basic files such as readme, gitignore and license.
@@ -101,13 +101,13 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-react-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype
-[junit]: http://junit.org
+[maven-repo]: https://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype
+[junit]: https://junit.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype/issues
-[license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: http://github.com/Bernardo-MG/spring-mvc-react-maven-archetype
-[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-react-archetype
-[site-release]: http://docs.bernardomg.com/maven/spring-mvc-react-archetype
+[license]: https://www.opensource.org/licenses/mit-license.php
+[scm]: https://github.com/Bernardo-MG/spring-mvc-react-maven-archetype
+[site-develop]: https://docs.bernardomg.com/development/maven/spring-mvc-react-archetype
+[site-release]: https://docs.bernardomg.com/maven/spring-mvc-react-archetype
 
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
@@ -115,14 +115,14 @@ The project has been released under the [MIT License][license].
 
 [spring-mvc]: https://spring.io/
 
-[liquibase]: http://www.liquibase.org/
+[liquibase]: https://www.liquibase.org/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom
 
 [github]: https://github.com/
 [bintray]: https://bintray.com/
-[travis]: https://travis-ci.org
+[github-workflow]: https://docs.github.com/en/actions/configuring-and-managing-workflows
 
 [react]: https://reactjs.org/
 [redux]: https://redux.js.org/

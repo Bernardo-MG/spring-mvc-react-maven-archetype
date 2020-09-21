@@ -2,10 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import { selectSearchingEntities } from 'search/selectors';
 
@@ -18,19 +17,23 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-function DataView({ intl, loading, search, changePage }) {
+function DataView({ intl }) {
+
+   const dispatch = useDispatch();
 
    const [query, setQuery] = React.useState('');
+
+   const loading = useSelector(selectSearchingEntities);
 
    let view = null;
 
    function handleChangeQuery() {
-      changePage(0);
-      search(query);
+      dispatch(setCurrentPage(0));
+      dispatch(searchEntity(query));
    }
 
    function handleMovePage() {
-      search(query);
+      dispatch(searchEntity(query));
    }
 
    if (loading) {
@@ -60,26 +63,7 @@ function DataView({ intl, loading, search, changePage }) {
 }
 
 DataView.propTypes = {
-   loading: PropTypes.bool.isRequired,
-   intl: intlShape.isRequired,
-   search: PropTypes.func.isRequired,
-   changePage: PropTypes.func.isRequired
+   intl: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state) => {
-   return {
-      loading: selectSearchingEntities(state)
-   };
-};
-
-const mapDispatchToProps = (dispatch) => {
-   return {
-      search: bindActionCreators(searchEntity, dispatch),
-      changePage: bindActionCreators(setCurrentPage, dispatch)
-   };
-};
-
-export default injectIntl(connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(DataView));
+export default injectIntl(DataView);

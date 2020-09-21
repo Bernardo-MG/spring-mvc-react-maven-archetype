@@ -37,8 +37,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ${package}.model.ExampleEntity;
 import ${package}.model.EntityForm;
+import ${package}.model.ExampleEntity;
+import ${package}.response.DefaultResponse;
+import ${package}.response.Response;
 import ${package}.service.ExampleEntityService;
 
 /**
@@ -77,8 +79,13 @@ public class ExampleEntityController {
      * @return the created entity
      */
     @PostMapping
-    public ExampleEntity createEntity(@RequestBody final EntityForm entity) {
-        return exampleEntityService.add(entity.getName());
+    public Response<ExampleEntity>
+            createEntity(@RequestBody final EntityForm entity) {
+        final ExampleEntity result;
+
+        result = exampleEntityService.add(entity.getName());
+
+        return new DefaultResponse<>(result);
     }
 
     /**
@@ -86,10 +93,13 @@ public class ExampleEntityController {
      * 
      * @param entity
      *            entity to delete
+     * @return the deleted entity
      */
     @DeleteMapping
-    public void deleteEntity(final EntityForm entity) {
+    public Response<EntityForm> deleteEntity(final EntityForm entity) {
         exampleEntityService.remove(entity.getId());
+
+        return new DefaultResponse<>(entity);
     }
 
     /**
@@ -102,11 +112,15 @@ public class ExampleEntityController {
      * @return a paginated collection of entities
      */
     @GetMapping
-    public Iterable<? extends ExampleEntity> readEntities(
+    public Response<Iterable<? extends ExampleEntity>> readEntities(
             @RequestParam(value = "query", required = false,
                     defaultValue = "") final String query,
             final Pageable page) {
-        return exampleEntityService.findByNameQuery(query, page);
+        final Iterable<? extends ExampleEntity> result;
+
+        result = exampleEntityService.findByNameQuery(query, page);
+
+        return new DefaultResponse<>(result);
     }
 
     /**
@@ -117,8 +131,13 @@ public class ExampleEntityController {
      * @return the updated entity
      */
     @PutMapping
-    public ExampleEntity updateEntity(@RequestBody final EntityForm entity) {
-        return exampleEntityService.update(entity);
+    public Response<ExampleEntity>
+            updateEntity(@RequestBody final EntityForm entity) {
+        final ExampleEntity result;
+
+        result = exampleEntityService.update(entity);
+
+        return new DefaultResponse<>(result);
     }
 
 }

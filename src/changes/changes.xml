@@ -18,5 +18,16 @@
             Reworked the frontend.
          </action>
       </release>
+      <release version="1.2.0" date="2020-09-21" description="Updated project">
+         <action dev="bmg" type="update">
+            Moved to Github actions.
+         </action>
+         <action dev="bmg" type="update">
+            Reworked the frontend.
+         </action>
+         <action dev="bmg" type="update">
+            Updated dependencies.
+         </action>
+      </release>
    </body>
 </document>

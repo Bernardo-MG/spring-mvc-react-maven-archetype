@@ -19,6 +19,7 @@
       ]
    ],
    "plugins":[
+      "@babel/plugin-transform-regenerator",
       "@babel/plugin-proposal-function-bind",
       "@babel/plugin-proposal-class-properties",
       [

@@ -27,11 +27,9 @@ package ${package}.test.unit.controller.rest;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
@@ -52,7 +50,6 @@ import ${package}.test.config.UrlConfig;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityControllerQuery {
 
     /**
@@ -90,7 +87,7 @@ public final class TestExampleEntityControllerQuery {
                         new PageableHandlerMethodArgumentResolver())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .build();
     }
 
@@ -105,7 +102,7 @@ public final class TestExampleEntityControllerQuery {
 
         query = captor.getValue();
 
-        Assert.assertEquals("abc", query);
+        Assertions.assertEquals("abc", query);
     }
 
     /**
@@ -119,7 +116,7 @@ public final class TestExampleEntityControllerQuery {
 
         query = captor.getValue();
 
-        Assert.assertEquals("", query);
+        Assertions.assertEquals("", query);
     }
 
     /**
@@ -156,7 +153,7 @@ public final class TestExampleEntityControllerQuery {
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
     /**
@@ -166,7 +163,7 @@ public final class TestExampleEntityControllerQuery {
      */
     private final RequestBuilder getGetRequestWithQuery() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?query=abc")
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

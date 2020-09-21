@@ -1,0 +1,1 @@
+export const REQUEST_FAILURE = 'REQUEST_FAILURE';
