@@ -29,5 +29,10 @@
             Updated dependencies.
          </action>
       </release>
+      <release version="1.2.1" date="2020-09-21" description="Updated project">
+         <action dev="bmg" type="fix">
+            Corrected links.
+         </action>
+      </release>
    </body>
 </document>
