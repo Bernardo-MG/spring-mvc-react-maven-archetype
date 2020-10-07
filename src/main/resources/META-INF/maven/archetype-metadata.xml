@@ -176,6 +176,7 @@
             <include>webpack.*.js</include>
             <include>.babelrc</include>
             <include>.eslintrc</include>
+            <include>.nvmrc</include>
          </includes>
       </fileSet>
    </fileSets>
