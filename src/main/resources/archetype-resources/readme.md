@@ -81,7 +81,7 @@ Maven profiles are included for setting up the database.
 | Profile     | Server                   |
 |-------------|--------------------------|
 | development | Development settings     |
-| release     | Release settings         |
+| production  | Production settings      |
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Installing
 
