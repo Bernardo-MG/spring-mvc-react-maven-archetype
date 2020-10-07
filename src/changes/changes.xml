@@ -42,5 +42,10 @@
             Added Spring Boot starters.
          </action>
       </release>
+      <release version="1.2.3" date="2020-10-07" description="Corrected build profiles">
+         <action dev="bmg" type="fix">
+            Corrected build profiles.
+         </action>
+      </release>
    </body>
 </document>
