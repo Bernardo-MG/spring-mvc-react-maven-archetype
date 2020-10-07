@@ -23,4 +23,4 @@ This makes the project be accessible at [http://localhost:8080/](http://localhos
 | Profile     | Server                   |
 |-------------|--------------------------|
 | development | Development settings     |
-| release     | Release settings         |
+| production  | Production settings      |
