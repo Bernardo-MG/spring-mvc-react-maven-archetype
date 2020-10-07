@@ -176,6 +176,12 @@
       <profile>
          <!-- Production profile -->
          <id>production</id>
+         <activation>
+            <property>
+               <name>env.ENVIRONMENT_MODE</name>
+               <value>production</value>
+            </property>
+         </activation>
          <build>
             <plugins>
                <plugin>
