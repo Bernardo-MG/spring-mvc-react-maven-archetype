@@ -252,6 +252,16 @@
                </plugin>
             </plugins>
          </build>
+         <dependencies>
+            <dependency>
+               <!-- Spring Boot Starter: Devtools -->
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-devtools</artifactId>
+               <version>${spring.boot.version}</version>
+               <scope>runtime</scope>
+               <optional>true</optional>
+            </dependency>
+         </dependencies>
       </profile>
       <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
@@ -530,14 +540,6 @@
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-data-jpa</artifactId>
          <version>${spring.boot.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Spring Boot Starter: Devtools -->
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-devtools</artifactId>
-         <version>${spring.boot.version}</version>
-         <scope>runtime</scope>
-         <optional>true</optional>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: AOP -->
