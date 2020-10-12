@@ -11,7 +11,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using R
 ## Features
 
 - [Spring MVC][spring-mvc] for the backend.
-- [React][react] and [Redux][redux] for the backend.
+- [React][react] and [Redux][redux] for the frontend.
 - Initial sample project including working persistence and exception handling
 - Using [Liquibase][liquibase] for database versioning.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
