@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
+#set( $symbol_dollar = '$' )
 package ${package}.test.unit.controller.rest;
 
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public final class TestExampleEntityController {
         result.andExpect(MockMvcResultMatchers.status().isOk());
 
         // The response model contains the expected attributes
-        result.andExpect(MockMvcResultMatchers.jsonPath("$.content",
+        result.andExpect(MockMvcResultMatchers.jsonPath("${symbol_dollar}.content",
                 Matchers.hasSize(3)));
     }
 
