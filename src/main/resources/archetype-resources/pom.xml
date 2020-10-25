@@ -202,7 +202,7 @@
                         <configuration>
                            <arguments>run build</arguments>
                            <environmentVariables>
-                              <API_ROOT>${node.env.appVersion}</API_ROOT>
+                              <API_ROOT>${node.env.api}</API_ROOT>
                               <APP_VERSION>${node.env.appVersion}</APP_VERSION>
                               <REPO_URL>${node.env.repoUrl}</REPO_URL>
                               <INPUT_PATH>${node.env.inputPath}</INPUT_PATH>
@@ -239,7 +239,7 @@
                         <configuration>
                            <arguments>run development</arguments>
                            <environmentVariables>
-                              <API_ROOT>${node.env.appVersion}</API_ROOT>
+                              <API_ROOT>${node.env.api}</API_ROOT>
                               <APP_VERSION>${node.env.appVersion}</APP_VERSION>
                               <REPO_URL>${node.env.repoUrl}</REPO_URL>
                               <INPUT_PATH>${node.env.inputPath}</INPUT_PATH>
