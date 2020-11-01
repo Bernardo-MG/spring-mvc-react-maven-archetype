@@ -47,5 +47,13 @@
             Corrected build profiles.
          </action>
       </release>
+      <release version="1.2.4" date="2020-11-01" description="Several corrections">
+         <action dev="bmg" type="fix">
+            Corrected replacements on index file.
+         </action>
+         <action dev="bmg" type="fix">
+            Corrected missing symbol on controller tests.
+         </action>
+      </release>
    </body>
 </document>

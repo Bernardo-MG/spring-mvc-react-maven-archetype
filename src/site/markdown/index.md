@@ -7,7 +7,7 @@ In this case this Archetype creates a [Spring MVC][spring-mvc] application, usin
 ## Features
 
 - Creates the base for a [Spring MVC][spring-mvc] project.
-- [React][react] and [Redux][redux] for the backend.
+- [React][react] and [Redux][redux] for the frontend.
 - Using [Liquibase][liquibase] for database versioning.
 - [bernardomg's Base POM][base-pom] used as parent POM.
 - [Unit and integration test][tests] suites are run separatedly with the use of [JUnit][junit].
