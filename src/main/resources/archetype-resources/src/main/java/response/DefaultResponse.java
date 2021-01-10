@@ -26,6 +26,8 @@ package ${package}.response;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import com.google.common.base.MoreObjects;
+
 public class DefaultResponse<T> implements Response<T> {
 
     private T              content;
@@ -65,6 +67,12 @@ public class DefaultResponse<T> implements Response<T> {
 
     public void setStatus(final ResponseStatus value) {
         status = value;
+    }
+
+    @Override
+    public final String toString() {
+        return MoreObjects.toStringHelper(this).add("status", status)
+                .add("content", content).toString();
     }
 
 }
