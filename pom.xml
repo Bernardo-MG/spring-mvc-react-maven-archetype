@@ -15,7 +15,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>archetype-pom</artifactId>
-      <version>1.2.1</version>
+      <version>1.2.2</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -24,7 +24,7 @@
 
    <groupId>com.bernardomg.maven.archetypes</groupId>
    <artifactId>spring-mvc-react-archetype</artifactId>
-   <version>1.2.4</version>
+   <version>1.2.5</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with React Maven Archetype</name>
@@ -169,7 +169,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.0.8</site.skin.version>
+      <site.skin.version>2.0.10</site.skin.version>
       <repoDownloadURL>https://dl.bintray.com/bernardo-mg/maven/</repoDownloadURL>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/spring-mvc-react-maven-archetype/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-react-archetype</mavenURL>
