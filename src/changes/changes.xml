@@ -55,5 +55,13 @@
             Corrected missing symbol on controller tests.
          </action>
       </release>
+      <release version="1.2.5" date="2021-01-18" description="Updates">
+         <action dev="bmg" type="update">
+            Updated POM.
+         </action>
+         <action dev="bmg" type="fix">
+            Corrected docs.
+         </action>
+      </release>
    </body>
 </document>
