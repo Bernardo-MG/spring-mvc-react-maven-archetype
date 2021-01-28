@@ -11,7 +11,7 @@
          <defaultValue>A Spring MVC project using React+Redux for the views.</defaultValue>
       </requiredProperty>
       <requiredProperty key="currentYear">
-         <defaultValue>2020</defaultValue>
+         <defaultValue>2021</defaultValue>
       </requiredProperty>
       <requiredProperty key="developerId">
          <defaultValue>bmg</defaultValue>
