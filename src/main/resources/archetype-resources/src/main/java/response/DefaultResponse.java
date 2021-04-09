@@ -28,22 +28,53 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.MoreObjects;
 
+/**
+ * Default implementation of the response.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ * @param <T>
+ *            response content type
+ */
 public class DefaultResponse<T> implements Response<T> {
 
+    /**
+     * Response content.
+     */
     private T              content;
 
+    /**
+     * Response status.
+     */
     private ResponseStatus status = ResponseStatus.SUCCESS;
 
+    /**
+     * Default constructor.
+     */
     public DefaultResponse() {
         super();
     }
 
+    /**
+     * Constructs a response with the specified content.
+     * 
+     * @param cont
+     *            content
+     */
     public DefaultResponse(final T cont) {
         super();
 
         content = checkNotNull(cont, "Missing content");
     }
 
+    /**
+     * Constructs a response with the specified content and status.
+     * 
+     * @param cont
+     *            content
+     * @param stat
+     *            status
+     */
     public DefaultResponse(final T cont, final ResponseStatus stat) {
         super();
 
@@ -61,10 +92,22 @@ public class DefaultResponse<T> implements Response<T> {
         return status;
     }
 
+    /**
+     * Sets the content.
+     * 
+     * @param value
+     *            response content
+     */
     public void setContent(final T value) {
         content = value;
     }
 
+    /**
+     * Sets the status.
+     * 
+     * @param value
+     *            response status
+     */
     public void setStatus(final ResponseStatus value) {
         status = value;
     }

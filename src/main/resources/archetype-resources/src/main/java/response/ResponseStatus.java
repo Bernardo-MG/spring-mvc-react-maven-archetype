@@ -26,9 +26,26 @@ package ${package}.response;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+/**
+ * Response status.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 public enum ResponseStatus {
 
-    FAILURE, SUCCESS, WARNING;
+    /**
+     * The request failed.
+     */
+    FAILURE,
+    /**
+     * The request was a success.
+     */
+    SUCCESS,
+    /**
+     * The request generated warnings.
+     */
+    WARNING;
 
     @JsonValue
     public final String getValue() {
