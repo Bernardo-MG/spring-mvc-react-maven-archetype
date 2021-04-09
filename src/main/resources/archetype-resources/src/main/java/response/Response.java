@@ -24,7 +24,7 @@
 
 package ${package}.response;
 
-import com.bernardomg.example.solar.response.ResponseStatus;
+import ${package}.response.ResponseStatus;
 
 /**
  * Response to the frontend.
