@@ -49,7 +49,7 @@ The configuration file, named *log4j2-test.xml*, can be found on the tests resou
 The common way to run tests through Maven is:
 
 ```sh
-$ mvn test
+mvn test
 ```
 
 But that will only run the unit tests.
